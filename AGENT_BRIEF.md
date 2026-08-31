@@ -75,7 +75,7 @@ Full detail in `docs/07-kicad-automation.md`. Do not pass a failed gate; stop an
 | Phase | Deliverable | Gate |
 |---|---|---|
 | 0 | ngspice model of one channel and the PSU loop | ≥ 60° phase margin and ≥ 10 dB gain margin into every load incl. 2 Ω ∥ 2.2 µF; THD < 0.005 % at 1 kHz half power; clean clipping recovery; bias stable 25–90 °C. **Channel done and passing** (88.7°, 13.1 dB, 0.0017 %); PSU loop still to do |
-| 1 | `lib/FS3W.kicad_sym` and `FS3W.pretty` | every custom footprint's pad-1 orientation verified against the datasheet drawing |
+| 1 | `lib/FS3W.kicad_sym` and `FS3W.pretty` | **done** — `python3 tools/check_lib.py` asserts pad-1 at −X and datasheet pitches. 3D reasons in `lib/README.md`. Omron G4A footprint still outstanding (see `DEVIATIONS.md`) |
 | 2 | hierarchical schematic, 3 channel instances | ERC clean; exported netlist matches `--netlist` output net-by-net **by script**; PDF reviewed by a human |
 | 3 | board outline, stackup, net classes, placement | heatsink device coordinates match the drill table exactly; no overlaps; all parts within their assigned region |
 | 4 | routing | see routing rules below |
