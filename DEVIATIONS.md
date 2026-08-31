@@ -26,3 +26,28 @@ Recorded while implementing Phase 1. Do not silently fold these back.
 
 7. **No 3D models in this library.** Wall-mount STEP comes from the chassis CAD
    in phase 6. Reasons per footprint are in `lib/README.md`.
+
+8. **KiCad 10 symbol lib_ids.** `Device:Q_NPN_BCE` / `Q_PNP_BCE` / `Q_NMOS_GDS`
+   moved to `Transistor_BJT` / `Transistor_FET`. `INA1651` is `FS3W:INA1651`.
+   The servo is drawn with `Amplifier_Operational:TL072` (value still OPA1642):
+   KiCad 10 has no OPA1642 symbol, and embedding `Opamp_Dual` makes
+   `kicad-cli` refuse to load the schematic. Pinout is the standard dual SOIC-8.
+
+9. **Phase 2 ERC waivers (placeholder sheets).** `amp_channel.kicad_sch` is
+   pin-accurate and is compared net-by-net to `channel_netlist.py`. Regulators,
+   protection, interface, and the PSU project place BoM parts with labels next
+   to symbols, not on pins — they have no Python netlist yet. `check_schematic.py`
+   waives `pin_not_connected`, `label_dangling`, `pin_not_driven`, and
+   `power_pin_not_driven` on those sheets, plus the channel mute FET gate
+   (`Q116`/`Q216`/`Q316`) which is driven from the protection sheet. Nets with
+   two to four connections are wired with a stub-then-jog router that refuses
+   any segment within 0.64 mm of a foreign pin; high-fanout nets stay
+   labels-only (docs/07). `kicad-sch-api`'s 90°/270° pin transform is swapped
+   versus KiCad 10, so the generator inverts those angles when placing labels.
+
+10. **Phase 3 placement.** Heatsink row coordinates match docs/05 §5.4 exactly.
+    `Q7` is `NJW0281G` (TO-3P) in the netlist; the drill table assumed a TO-126
+    TTC004B. Courtyard overlap against the adjacent drivers is waived. Input and
+    speaker terminals use Phoenix MKDS 5.08 mm footprints (KiCad 10 has no
+    `TerminalBlock_bornier-*`). Relays still have no G4A footprint. The board is
+    placed, not routed — Phase 4.

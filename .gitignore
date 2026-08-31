@@ -1,6 +1,12 @@
 .local/
+.venv/
 *.raw
 sim/out/
 __pycache__/
 *.pyc
 *.pyo
+*-backups/
+fp-info-cache
+*.kicad_prl
+fs3w-amp/erc-amp.json
+fs3w-psu/erc-psu.json

@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "FS3W")(type "KiCad")(uri "${KIPRJMOD}/../lib/FS3W.kicad_sym")(options "")(descr "FS-3W custom symbols"))
+)
