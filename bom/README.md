@@ -5,9 +5,9 @@ complete front stage.
 
 | File | Contents |
 |---|---|
-| [`amp-board.csv`](amp-board.csv) | 3 amplifier channels, front-end regulators, protection block, connectors |
-| [`psu-board.csv`](psu-board.csv) | push-pull converter, magnetics, input protection |
-| [`pricing.csv`](pricing.csv) | orderable MPNs, 2–3 live sources, 1-pc USD, line totals |
+| [`amp-board.csv`](amp-board.csv) | 3 amplifier channels, front-end regulators, protection block, connectors, 1-pc USD and buy links |
+| [`psu-board.csv`](psu-board.csv) | push-pull converter, magnetics, input protection, 1-pc USD and buy links |
+| [`unit.csv`](unit.csv) | chassis / heatsink / leftover wire — not a board, but in the per-unit total |
 
 ## Sourcing status
 
@@ -53,26 +53,32 @@ the tail and VAS currents. Red only.
 
 Priced 30 August 2026 from live 1-piece USD at authorised distributors (DigiKey /
 Mouser first, LCSC as a genuine-mfr second source, Newark / Farnell / RS as a third).
-Line-by-line MPNs and the three quotes are in [`pricing.csv`](pricing.csv). Grouped
-passives use a representative series price, not every value looked up individually.
+Each board CSV has the orderable MPN, unit and extended price, and two or three
+distributor search links on the same row. Click a link and it opens that vendor's
+live listing for the MPN. DNP and optional lines are left unpriced and are omitted
+from the `TOTAL` row.
 
 This is what two boards actually cost if you order like a human building a pair of
 units, not a factory:
 
 | | Amp board | PSU board |
 |---|---|---|
-| Semiconductors + ICs | $114 | $32 |
-| Passives (precision, film, electrolytics, ceramics) | $157 | $32 |
-| Relays / magnetics / connectors / hardware | $77 | $65 |
+| Semiconductors + ICs | $113 | $30 |
+| Passives (precision, film, electrolytics, ceramics) | $155 | $33 |
+| Relays / magnetics / connectors / hardware | $78 | $66 |
 | Bare PCB, 4-layer 2 oz outer, qty-5 buy | $55 | $50 |
-| **Populated board** | **$403** | **$179** |
+| **Populated board** | **$401** | **$179** |
 
 | | |
 |---|---|
-| Amp + PSU populated | $582 |
+| Amp + PSU populated | $581 |
 | Chassis / heatsink / leftover wire | $135 |
-| **One unit (one stereo side)** | **$717** |
-| **Complete front stage (2 units)** | **$1,435** |
+| **One unit (one stereo side)** | **$716** |
+| **Complete front stage (2 units)** | **$1,431** |
+
+Exact cents are in the `TOTAL` row of each CSV (`$401.20` amp, `$179.31` PSU). They
+moved a couple of dollars from the earlier rollup because grouped passives were
+split back onto the real reference lines.
 
 The previous ~$560/unit guess was low. Three things moved it:
 

@@ -1,0 +1,4 @@
+Category,Refs,Qty,Value,Package,Orderable MPN,Manufacturer,Unit USD,Ext USD,Source 1,Link 1,Source 2,Link 2,Source 3,Link 3,Notes
+Chassis / heatsink,1 per unit,1,finned Al extrusion ~250×175×40,,custom extrusion,local machine shop,120.00,120.00,local fab,,HeatsinkUSA,https://www.heatsinkusa.com/,Wakefield,https://www.wakefield-vette.com/,"Not a PCB cost. Rth <= 1.09 °C/W natural convection. Quoted per unit, not per board."
+Wire / hardware leftover,1 per unit,1,16 AWG / 12 AWG / thermal compound,,generic,generic,15.00,15.00,McMaster,https://www.mcmaster.com/search/16%20AWG%20wire,DigiKey,https://www.digikey.com/en/products/filter?keywords=16%20AWG%20silicone%20wire,local,,Board-to-board rail cable must be short and fat.
+TOTAL,,,,,,,,135.00,,,,,,,"1-pc authorised USD, 30 Aug 2026. DNP / optional lines are omitted from this total."
