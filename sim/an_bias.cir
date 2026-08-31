@@ -1,0 +1,89 @@
+FS-3W channel -- bias trim range and thermal tracking
+
+* This deck exists to answer two questions that decide whether the output stage
+* is usable:
+*
+*   1. Does the trimmer reach 45 mA per device, and is the setting controllable?
+*   2. When the heatsink heats up, does the bias hold?
+*
+* Question 2 is what forced Q8/Q9 onto the heatsink. The multiplier ratio is
+* fixed by the total spread it has to hold, so it delivers one tempco; if only
+* four of the six junctions in the bias string track the heatsink, that tempco
+* is 42% too large and the bias collapses into class B when hot. Putting all six
+* on the heatsink turns the same 42% error into 5%.
+
+.include models.lib
+.include channel_core.net
+
+.param rload=4 cload=1p rsrc=2.5k
+
+Vin   SRC 0 DC 0
+* Loop closed with a 0 V source, not a small resistor: a near-zero
+* resistor across the split feedback node makes the 2 ohm DC solve land
+* on a 1.9 A bias point instead of 45 mA. See docs/02 section 2.6.
+Vshort Q1B_B FB DC 0
+.include testbench.inc
+
+.options gminsteps=100 itl1=500
+
+.control
+set noaskquit
+unset askquit
+
+* ---------------------------------------------------------------------------
+* 1. Trimmer sweep at 25 C
+* ---------------------------------------------------------------------------
+echo ""
+echo "RV2_lo  ratio   spread    Iq/dev     ballast    Pd/dev"
+echo "(ohm)            (V)       (mA)        (mV)       (W)"
+foreach pos 0 10 20 30 40 50 60 68 80 90 100
+  alterparam rv2_b = $pos
+  reset
+  op
+  let sp = v(BIAS_TOP)-v(BIAS_BOT)
+  let kk = sp/(v(BADJ)-v(BIAS_BOT))
+  let iq = 1000*(v(Q12_E)-v(OUT_STAR))/0.22
+  let mv = 1000*(v(Q12_E)-v(OUT_STAR))
+  let pd = 0.024*iq
+  echo "$pos  {$&kk}  {$&sp}  {$&iq}  {$&mv}  {$&pd}"
+end
+
+* ---------------------------------------------------------------------------
+* 2. Thermal tracking at the trimmer setpoint
+*
+* The heatsink group is swept from 25 C to 90 C, which is the design limit from
+* docs/01. The PCB group is held at 25 C for the first sweep to isolate the
+* heatsink term, then raised to a realistic 45 C to show the combined case.
+* ---------------------------------------------------------------------------
+* Vectors do not survive `reset`, so each row is printed absolutely rather than
+* as a ratio to a stored reference.
+echo ""
+echo "T_hs  T_pcb   spread     Iq/dev    Pd/dev   4-dev idle"
+echo "(C)    (C)      (V)       (mA)      (W)        (W)"
+alterparam rv2_b = 68
+foreach ths 25 40 55 70 90
+  alterparam t_hs = $ths
+  reset
+  op
+  let sp = v(BIAS_TOP)-v(BIAS_BOT)
+  let iq = 1000*(v(Q12_E)-v(OUT_STAR))/0.22
+  let pd = 0.024*iq
+  let p4 = 4*pd
+  echo "$ths   25   {$&sp}  {$&iq}  {$&pd}  {$&p4}"
+end
+
+* Now with the whole board hot, which is the realistic in-car case.
+alterparam t_pcb = 45
+foreach ths 40 70 90
+  alterparam t_hs = $ths
+  reset
+  op
+  let sp = v(BIAS_TOP)-v(BIAS_BOT)
+  let iq = 1000*(v(Q12_E)-v(OUT_STAR))/0.22
+  let pd = 0.024*iq
+  let p4 = 4*pd
+  echo "$ths   45   {$&sp}  {$&iq}  {$&pd}  {$&p4}"
+end
+
+.endc
+.end

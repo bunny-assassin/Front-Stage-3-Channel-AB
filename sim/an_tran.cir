@@ -1,0 +1,60 @@
+FS-3W channel -- single-case transient, for looking at waveforms by hand
+
+* This deck does ONE case. The full distortion, headroom and step-response
+* sweeps live in `python tools/sim_sweep.py thd`, which runs a separate ngspice
+* process per case. That is not fussiness. Two things bite anyone who tries to
+* do the sweep inside one deck, and both give confident wrong answers rather
+* than errors:
+*
+*   1. `alter rload = 2` sets the resistance correctly, but the DC solve that
+*      follows lands on a 1.9 A bias point instead of 45 mA. Nothing warns you.
+*      An earlier version of this file swept the load that way and reported
+*      16 % THD at 2 ohm, which was entirely an artefact.
+*
+*   2. `reset` re-reads the netlist and discards every `alter`, so altering and
+*      then resetting silently runs the original circuit.
+*
+* There is also a subtler one that applies here: close the feedback loop with a
+* 0 V source, not a small resistor. gen_spice.py splits Q1B's base onto its own
+* node so the analysis deck decides how to rejoin it; a near-zero resistor puts
+* a near-singular row in the matrix and the 2 ohm DC solve fails, while a 0 V
+* source gets its own branch current unknown and solves fine.
+*
+* Edit the .param line and the source below to pick a case, then:
+*   ngspice -b an_tran.cir
+* Drive levels: 1.033 V peak at SRC gives 20.5 V peak out, which is 52 W into
+* 4 ohm and 105 W into 2 ohm. The output stage ceiling is 21.4 V peak.
+
+.include models.lib
+.include channel_core.net
+
+.param rload=4 cload=1p rsrc=2.5k
+
+Vsig   SRC 0 SIN(0 1.033 1k)
+Vshort Q1B_B FB DC 0
+.include testbench.inc
+
+.options reltol=1e-4 abstol=1e-11 itl1=1000 rshunt=1e8
+
+.control
+op
+echo "=== preconditions: bias must be ~45 mA, L1 residual must be ~0 ========"
+echo "If either is wrong the DC solve failed and nothing below means anything."
+let iq_check = 1000*(v(Q12_E)-v(OUT_STAR))/0.22
+let dc_check = abs(v(OUT_STAR)-v(SPK_OUT))
+print iq_check dc_check
+
+* linearize is mandatory before fourier: the transient solver uses variable
+* timesteps and the FFT needs even ones.
+echo ""
+echo "=== THD ==============================================================="
+tran 200n 15m 5m
+linearize v(spk_out)
+fourier 1000 v(spk_out)
+
+meas tran vpos max v(spk_out) from=5m to=15m
+meas tran vneg min v(spk_out) from=5m to=15m
+echo "Asymmetry between these two means one polarity is clipping first:"
+print vpos vneg
+.endc
+.end

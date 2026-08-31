@@ -1,0 +1,76 @@
+﻿Category,Refs,Qty,Value,Package,MPN / Series,Manufacturer,Notes
+Semiconductor - output,Q112 Q113 Q212 Q213 Q312 Q313,6,NPN 250V 15A 150W,TO-3P,NJW0281G,onsemi,Active. Gain-matched to NJW0302G within 10% from 50mA to 3A. Heatsink mounted.
+Semiconductor - output,Q114 Q115 Q214 Q215 Q314 Q315,6,PNP 250V 15A 150W,TO-3P,NJW0302G,onsemi,Active. Complement of NJW0281G. Heatsink mounted.
+Semiconductor - driver,Q110 Q210 Q310,3,NPN 250V 8A,TO-220,MJE15032G,onsemi,Active. Heatsink mounted.
+Semiconductor - driver,Q111 Q211 Q311,3,PNP 250V 8A,TO-220,MJE15033G,onsemi,Active. Heatsink mounted.
+Semiconductor - VAS/predriver,Q105 Q108 Q107 Q205 Q208 Q207 Q305 Q308 Q307,9,NPN 160V 1.5A Cob 12pF,TO-126N,TTC004B,Toshiba,"VAS, NPN pre-driver, and bias multiplier. Q1x7 is heatsink mounted. Replaces EOL KSC3503; compensation is designed for its 12pF Cob."
+Semiconductor - VAS/predriver,Q106 Q109 Q206 Q209 Q306 Q309,6,PNP 160V 1.5A Cob 17pF,TO-126N,TTA004B,Toshiba,VAS current source and PNP pre-driver. Replaces EOL KSA1381.
+Semiconductor - small signal,Q101 Q201 Q301,3,dual matched PNP,SOT-363,BCM857BS,Nexperia,Input LTP. Monolithic dual gives inherent matching and thermal coupling.
+Semiconductor - small signal,Q103 Q203 Q303,3,dual matched NPN,SOT-363,BCM847BS,Nexperia,Current mirror load.
+Semiconductor - small signal,Q102 Q202 Q302,3,PNP,SOT-23,BC857C,Nexperia,Tail current source.
+Semiconductor - small signal,Q104 Q204 Q304,3,NPN,SOT-23,BC847C,Nexperia,VAS beta enhancer.
+Semiconductor - small signal,Q116 Q216 Q316,3,N-MOSFET,SOT-23,BSS138,onsemi,DNP. Optional input mute.
+Semiconductor - diode,D101 D102 D201 D202 D301 D302,6,red LED 1.8Vf,805,any 0805 red,-,Voltage reference for the current sources. Lower noise than a zener. Not indicators - do not substitute a different colour.
+Semiconductor - diode,D103 D203 D303,3,5.1V zener 250mW,SOT-23,BZX84C5V1,onsemi / Nexperia,Bias spreader failsafe clamp. See docs/02.
+IC - input,U101,1,dual balanced line receiver,TSSOP-14,INA1650IPW,Texas Instruments,Channels 1 and 2. 91dB CMRR. Same footprint as INA1651.
+IC - input,U301,1,single balanced line receiver,TSSOP-14,INA1651IPW,Texas Instruments,Channel 3. Verify pin assignment against datasheet section 5 before layout.
+IC - servo,U102 U202 U302,3,dual JFET audio op-amp,SOIC-8,OPA1642AID,Texas Instruments,DC servo. Two sections per channel: integrator plus inverter.
+IC - protection,U401 U402,2,quad comparator,SOIC-14,LM339D,onsemi,DC offset / thermal / overcurrent detection.
+IC - regulator,U403,1,adjustable positive regulator,TO-220,LM317T,onsemi / TI,+30V front-end rail from +35V aux.
+IC - regulator,U404,1,adjustable negative regulator,TO-220,LM337T,onsemi / TI,-30V front-end rail.
+IC - regulator,U405,1,adjustable positive regulator,TO-220,LM317T,onsemi / TI,+15V from +30V. 0.6W - small heatsink.
+IC - regulator,U406,1,adjustable negative regulator,TO-220,LM337T,onsemi / TI,-15V from -30V.
+Resistor - precision,R101 R102 R201 R202 R301 R302,6,100R,805,TNPW0805 / ERA-6AEB,Vishay / Panasonic,0.1% 25ppm thin film. Matching sets input CMRR - a 20 ohm mismatch costs 7dB.
+Resistor - precision,R108 R109 R208 R209 R308 R309,6,220R,805,TNPW0805 / ERA-6AEB,Vishay / Panasonic,0.1% LTP degeneration. Sets input stage transconductance.
+Resistor - precision,R110 R210 R310,3,287R,805,TNPW0805,Vishay,0.1% sets 4mA tail current.
+Resistor - precision,R112 R113 R212 R213 R312 R313,6,68R,805,TNPW0805,Vishay,0.1% current mirror degeneration.
+Resistor - precision,R119 R219 R319,3,115R,805,TNPW0805,Vishay,0.1% sets 10mA VAS current.
+Resistor - precision,R138 R238 R338,3,115R,805,TNPW0805,Vishay,0.1% feedback lower leg. Sets closed-loop gain with R1x7.
+Resistor - precision,R103 R203 R303,3,2k2,805,TNPW0805,Vishay,0.1% attenuator top.
+Resistor - precision,R137 R237 R337,3,2k2,1206,TNPW1206,Vishay,0.1% 0.5W feedback upper leg. Carries 10mA at full output.
+Resistor - precision,R106 R206 R306,3,1k,805,TNPW0805,Vishay,0.1% base stopper.
+Resistor - ballast,R131-R134 R231-R234 R331-R334,12,0R22,axial 3W,non-inductive power film,Vishay MPC71 / Caddock MP,MUST be non-inductive. Wirewound only if explicitly specified non-inductive. Forces current sharing between output pairs.
+Resistor - power,R135 R136 R235 R236 R335 R336,6,10R,axial 3W,non-inductive power film,Vishay MPC71,Zobel resistor and output inductor damping.
+Resistor - general,R127-R130 R227-R230 R327-R330,12,4R7,1206,RC1206,Yageo,Output base stoppers. Mandatory - these suppress local VHF oscillation in paralleled devices.
+Resistor - general,R123 R124 R223 R224 R323 R324,6,2k2,1206,RC1206,Yageo,Pre-driver emitter loads.
+Resistor - general,R125 R126 R225 R226 R325 R326,6,220R,1206,RC1206,Yageo,Driver emitter loads.
+Resistor - general,R115 R118 R215 R218 R315 R318,6,100R,805,RC0805,Yageo,VAS degeneration and base stopper.
+Resistor - general,R122 R222 R322,3,1k,805,RC0805,Yageo,Bias multiplier lower leg / min-spread limit. Design value is 1k not 220R.
+Resistor - precision,R121 R221 R321,3,4k42,805,TNPW0805,Vishay,0.1% bias multiplier upper leg. Design value is 4k42 not 3k3.
+Resistor - general,R111 R120 R211 R220 R311 R320,6,15k,805,RC0805,Yageo,LED reference bias.
+Resistor - general,R114 R148 R150 R214 R248 R250 R314 R348 R350,9,10k,805,RC0805,Yageo,Beta enhancer load / servo injection / current sense tap.
+Resistor - general,R104 R143 R146 R147 R204 R243 R246 R247 R304 R343 R346 R347,12,100k,805,RC0805,Yageo,Pulldown / DC sense / servo inverter.
+Resistor - general,R144 R244 R344,3,470k,805,RC0805,Yageo,Servo integrator input.
+Resistor - general,R145 R149 R245 R249 R345 R349,6,1k,805,RC0805,Yageo,Servo references.
+Resistor - DNP,R105 R107 R116 R205 R207 R216 R305 R307 R316,9,-,805,-,-,"Do not populate: mute shunt (100R), INA COM option (1M), two-pole comp (1k)."
+Resistor - link,R6 positions,3,0R,805,RC0805,Yageo,Zero-ohm link in the C1x6 coupling position. Replace with 2u2 film only if the source has DC offset.
+Trimmer,RV101 RV201 RV301,3,10k,3296W,3296W-1-103LF,Bourns,Gain trim. 25-turn cermet.
+Trimmer,RV102 RV202 RV302,3,100R,3296W,3296W-1-101LF,Bourns,Bias trim. 25-turn cermet. 100R not 1k — the useful ratio window is narrow.
+Capacitor - film,C113 C121 C122 C213 C221 C222 C313 C321 C322,9,100n 100V,film 5mm,MKS2 / R82,WIMA / Kemet,"Zobel and main rail bypass. Film, not ceramic - ceramic here is piezoelectric and microphonic."
+Capacitor - film,C115 C215 C315,3,2u2 63V,film 15mm,MKS4,WIMA,DC servo integrator. Film is the reason there is no electrolytic in the feedback loop.
+Capacitor - ceramic,C102 C104 C108 C111 C112 C116 C117 C118 C125 C126 (x3 ch),30,100n 50V X7R,805,CL21B104K,Samsung / Yageo,Local decoupling.
+Capacitor - ceramic,C103 C105 C203 C205 C303 C305,6,10u 25V X7R,805,-,Samsung / Murata,Line receiver rail bulk.
+Capacitor - ceramic,C123 C124 C223 C224 C323 C324,6,10u 50V X7R,805,-,Samsung / Murata,Front-end rail bulk.
+Capacitor - ceramic,C101 C201 C301,3,1u 50V X7R,805,-,Samsung,INA165x VMID bypass.
+Capacitor - ceramic C0G,C107 C207 C307,3,220p 100V C0G,805,-,Samsung / Kemet,Input pole. C0G only - class 2 dielectrics are nonlinear.
+Capacitor - ceramic C0G,C109 C209 C309,3,68p 100V C0G,805,-,Samsung / Kemet,"Cdom. Sets the dominant pole - C0G mandatory. 68p not 150p: simulation showed 150p wastes loop gain for phase margin the design does not need."
+Capacitor - ceramic C0G,C114 C214 C314,3,10p 100V C0G,805,-,Samsung / Kemet,"RF ingress guard across the feedback upper leg. 10p not 100p: 100p created a loop-gain shelf that cut gain margin to 4 dB."
+Capacitor - DNP,C110 C210 C310,3,1n,805,-,-,Do not populate. Two-pole compensation option.
+Capacitor - electrolytic,C119 C120 C219 C220 C319 C320,6,220u 35V,radial 10mm,FR / UPW series,Panasonic / Nichicon,"Per-channel rail reservoir. Low ESR, 105C."
+Capacitor - electrolytic,C401 C402,2,4700u 35V,radial 18mm,FR / UPW series,Panasonic / Nichicon,Main rail bulk. Regulated rails need far less than an unregulated design - see docs/01.
+Capacitor - electrolytic,C403-C406,4,220u 63V,radial 10mm,FR series,Panasonic,Aux rail and regulator reservoirs.
+Capacitor - film,C407-C410,4,1u 100V,film 10mm,MKS4,WIMA,Main rail film bypass.
+Inductor,L101 L201 L301,3,2u2 air core,12mm ID,hand wound,-,~12 turns of 1.0mm wire wound over R1x6. Axes must be perpendicular and >=25mm apart between channels.
+Relay,K401 K402 K403,3,SPST 20A 12V coil,PCB,G4A-1A-PE DC12,Omron,G8P-1A4P is discontinued. G4A is Omron's suggested replacement; footprint is not G8P. Midbass peak is 10.7A so 20A is enough. Consider two in parallel on channel 3.
+Thermistor,RT401,1,10k NTC B3950,radial / bead,NTCLE100E3103,Vishay,Bonded to the chassis wall between channel 3 output devices.
+Switch - thermal,S401,1,100C NC thermal cutout,-,-,-,Independent backup in series with the relay coil supply.
+LED - indicator,D401 D402 D403,3,green / amber / red,3mm THT,-,-,Panel indicators. See docs/04.
+Discrete - protection,Q401-Q412 etc,~24,BC847C / BC857C,SOT-23,-,Nexperia,"DC detectors, latch, relay drivers, sequencing. See docs/04."
+Passives - protection,-,~40,assorted,805,-,-,Protection block resistors and capacitors including 10u DC-sense integrators.
+Connector - input,J401 J402 J403,3,2-pin balanced input,3.5mm screw or Molex,-,-,Differential pair per channel. Shield terminated to chassis through 10R || 100n.
+Connector - output,J404 J405 J406,3,2-pin speaker terminal,>=10A screw,-,-,Returns must go to the star point.
+Connector - power,J407,1,rail entry,screw terminal / bolted lug,-,-,"VCC_MAIN, VEE_MAIN, PWR_GND. Not pin headers - 20mR of contact resistance is 0.2V at 10A."
+Connector - misc,J408 J409,2,remote in / PSU shutdown,2-pin,-,-,-
+Hardware,-,21,M3x8 screw + insulator pad,-,0.23mm alumina or Kapton pad,-,Heatsink mounting for 21 devices. Silicone pads alone are ~4x worse thermally and invalidate the thermal budget.
+Hardware,-,6,M3 standoff 10mm,-,-,-,Board mounting.
+Hardware,-,1,M4 stud + hardware,-,-,-,Single chassis ground bond at the star point.

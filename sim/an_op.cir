@@ -1,0 +1,91 @@
+FS-3W channel -- DC operating point and bias verification
+
+.include models.lib
+.include channel_core.net
+
+.param rload=4 cload=1p rsrc=2.5k
+
+Vin   SRC 0 DC 0
+* Loop closed with a 0 V source, not a small resistor: a near-zero
+* resistor across the split feedback node makes the 2 ohm DC solve land
+* on a 1.9 A bias point instead of 45 mA. See docs/02 section 2.6.
+Vshort Q1B_B FB DC 0
+.include testbench.inc
+
+.options temp=25 gminsteps=100 itl1=500
+
+.control
+op
+
+echo ""
+echo "=== convergence sanity check ==========================================="
+echo "L1 is a DC short, so these two must be identical. If they are not,"
+echo "ngspice gave up on the DC solve and handed back a transient state."
+print v(OUT_STAR) v(SPK_OUT)
+let dc_solve_error = abs(v(OUT_STAR)-v(SPK_OUT))
+print dc_solve_error
+
+echo ""
+echo "=== output DC offset ==================================================="
+echo "gate: |Vout| < 5 mV before the protection threshold matters (docs/04)"
+print v(SPK_OUT) v(OUT_STAR)
+
+echo ""
+echo "=== quiescent current, per output device (A) ==========================="
+echo "gate: 45 mA +/- 5 mA each = 9.9 mV across each 0R22 ballast (docs/02)"
+let iq_q12 = (v(Q12_E)-v(OUT_STAR))/0.22
+let iq_q13 = (v(Q13_E)-v(OUT_STAR))/0.22
+let iq_q14 = (v(OUT_STAR)-v(Q14_E))/0.22
+let iq_q15 = (v(OUT_STAR)-v(Q15_E))/0.22
+print iq_q12 iq_q13 iq_q14 iq_q15
+let iq_npn = iq_q12 + iq_q13
+let iq_pnp = iq_q14 + iq_q15
+print iq_npn iq_pnp
+
+echo ""
+echo "=== bias spreader ======================================================"
+echo "gate: spread ~3.87 V, and the realised ratio must be near 5.68 -- the"
+echo "ratio is the thermal tracking spec, not just a bias level (docs/02 2.3)."
+let vspread = v(BIAS_TOP)-v(BIAS_BOT)
+let k_actual = vspread/(v(BADJ)-v(BIAS_BOT))
+print vspread k_actual
+echo "clamp margin to D3 (BZX84C5V1, 4.85 V minimum):"
+let d3_margin = 4.85 - vspread
+print d3_margin
+
+echo ""
+echo "=== front end ==========================================================="
+echo "gate: tail 4 mA, VAS 10 mA, LTP collectors balanced"
+let i_tail = (v(VCC_FE)-v(Q2_E))/287
+let i_vas  = (v(VCC_FE)-v(Q6_E))/115
+print i_tail i_vas
+print v(LC_A) v(LC_B) v(VB_PRE)
+echo "LTP base-emitter symmetry (Q1A vs Q1B): a large delta means the offset"
+echo "is being carried by the servo rather than by the topology"
+let vbe_a = v(Q1A_E)-v(LTP_INP)
+let vbe_b = v(Q1B_E)-v(Q1B_B)
+print vbe_a vbe_b
+
+echo ""
+echo "=== servo effort ========================================================"
+echo "gate: |V(SRV_B_OUT)| well inside +/-13 V. This is the correction the"
+echo "servo is holding; if it is near the rail the servo has no range left."
+print v(SRV_A_OUT) v(SRV_B_OUT)
+let servo_inject_uA = 1e6*(v(SRV_B_OUT)-v(FB))/10000
+print servo_inject_uA
+
+echo ""
+echo "=== output stage headroom =============================================="
+echo "gate: pre-driver and driver rails must not be the limit; VCC_FE is 30 V"
+echo "so the output triple has 6 V of overhead above the 24 V main rail"
+print v(PD_N) v(PD_P) v(DR_N) v(DR_P)
+
+echo ""
+echo "=== device dissipation at idle (W) ====================================="
+let pd_out = 24*iq_q12
+let pd_drv = (24-v(DR_N))*((v(DR_N)-v(OUT_STAR))/220)
+let pd_vas = (v(BIAS_BOT)-v(VEE_FE))*i_vas
+print pd_out pd_drv pd_vas
+
+.endc
+.end

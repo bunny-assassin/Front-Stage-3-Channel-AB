@@ -1,0 +1,6 @@
+.local/
+*.raw
+sim/out/
+__pycache__/
+*.pyc
+*.pyo

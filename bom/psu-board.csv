@@ -1,0 +1,42 @@
+Category,Refs,Qty,Value,Package,MPN / Series,Manufacturer,Notes
+Semiconductor - switch,Q20 Q21 Q22 Q23,4,N-MOSFET 100V 3.7mR,TO-220,IRFB4110PbF,Infineon,"Push-pull primary, 2 in parallel per side. 100V gives >2x margin on the 30V Vds stress."
+Semiconductor - ideal diode,Q24,1,N-MOSFET 100V,TO-220,IRFB4110PbF,Infineon,"Reverse-polarity pass element. A Schottky here would dissipate 12W at 25A."
+Semiconductor - rectifier,D20 D21,2,dual Schottky 100V 30A,TO-247,MBRB30H100CT class,onsemi / ST,"One per rail. PIV is ~2x26V plus ringing, so 100V is the correct rating."
+Semiconductor - rectifier,D22 D23,2,ultrafast 200V 1A,SMB,MURS120,onsemi,Aux winding rectifiers.
+Semiconductor - TVS,D24,1,bidirectional TVS 30V standoff,SMC / TO-220,SMDJ30CA class,Littelfuse,Automotive load dump protection.
+Semiconductor - TVS,D25,1,unidirectional clamp 33V,SMC,SMCJ33A,Littelfuse,B+ clamp.
+IC - controller,U10,1,voltage-mode push-pull PWM,SOIC-16W,SG3525ADWR2G,onsemi,"DIP SG3525AN is obsolete at DigiKey. SOIC SG3525ADWR2G is the live onsemi reel. Chosen over UCC2808A specifically for the SYNC pin, which phase-locks the two units."
+IC - gate driver,U11,1,dual 5A gate driver,SOIC-8,UCC27524A,Texas Instruments,"The SG3525A's own 400mA outputs are too slow for four paralleled IRFB4110."
+IC - ideal diode ctrl,U12,1,ideal diode controller,SOIC-8,LM74700-Q1,Texas Instruments,Drives Q24 for reverse-polarity protection.
+IC - comparator,U13,1,dual comparator,SOIC-8,LM393,onsemi,Primary overcurrent - pulls SG3525A pin 10 pulse by pulse.
+IC - regulator,U14 U15,2,adjustable pos / neg regulator,TO-220,LM317T / LM337T,onsemi,"Optional: these may live on the amp board instead. Standard 40V parts are adequate because the aux winding is choke-input and therefore regulated at 35V."
+Magnetics,T1,1,push-pull transformer,ETD44,3C95 or N87 core + clip set,Ferroxcube / TDK,"Hand wound. 3+3 primary (0.25x25mm copper foil), 1 turn interwinding shield, 8+8 main secondary (8x 0.5mm), 11+11 aux. See docs/03 section 3.3. VERIFY WINDOW FILL - move to ETD49 rather than thinning conductors."
+Magnetics,L20,1,coupled output choke 33uH 10A,toroid,Kool Mu / sendust core,Magnetics / Micrometals,"Bifilar, both rails on one core so they track. Choke-input is what makes duty-cycle regulation work."
+Magnetics,L21 L22,2,aux choke 2.2mH 100mA,radial,-,-,"Required for aux rail regulation. Without these the aux rail rises to 53V and exceeds the regulator rating."
+Magnetics,L23,1,common-mode choke ~25uH,ferrite toroid,-,-,"2 x 15 turns of 1.5mm2. Keeps converter noise off the battery wiring."
+Magnetics,L24 L25,2,4.7uH 10A,toroid,-,-,Second-stage rail filter before the board-to-board link.
+Capacitor - input bulk,C30 C31,2,4700u 25V,radial 18mm,FR / UPW series,Panasonic / Nichicon,"Low ESR, high ripple. Must be physically adjacent to the MOSFETs."
+Capacitor - input film,C32 C33,2,1u 63V,film 10mm,MKS4,WIMA,-
+Capacitor - input ceramic,C34-C37,4,100n 100V X7R,1206,-,-,Distributed at the MOSFET drains.
+Capacitor - output bulk,C38 C39,2,4700u 35V,radial 18mm,FR / UPW series,Panasonic / Nichicon,Rail reservoirs. One per rail.
+Capacitor - output,C40 C41,2,1000u 35V,radial 12mm,FR series,Panasonic,Second-stage filter.
+Capacitor - output film,C42 C43,2,1u 100V,film 10mm,MKS4,WIMA,-
+Capacitor - output ceramic,C44 C45,2,100n 100V X7R,1206,-,-,-
+Capacitor - aux,C46 C47,2,220u 63V,radial 10mm,FR series,Panasonic,-
+Capacitor - snubber,C48-C53,6,2n2 100V C0G,1206,-,Kemet / Samsung,"Drain and rectifier snubbers. C0G only - the dielectric sees the full switching edge."
+Capacitor - control,C54,1,10u 25V,0805 / radial,-,-,"Soft start, ~1s ramp."
+Capacitor - control,C55,1,10n C0G,0805,-,-,Oscillator timing (Ct). Measure the resulting frequency - do not trust the nominal formula.
+Capacitor - control,C56-C60,5,100n 50V X7R,0805,-,-,Controller and driver decoupling.
+Resistor - power,R60,1,0.005R 3W 4-terminal,shunt,-,Bourns / Vishay,"Primary current sense. Kelvin traces to the comparator as a differential pair."
+Resistor - gate,R61-R64,4,4R7,1206,RC1206,Yageo,"One per MOSFET, at the MOSFET. Never a shared gate resistor - paralleled devices will fight."
+Resistor - snubber,R65-R70,6,10R 1W,1206 / axial,-,-,Tune at bring-up while watching the drain waveform.
+Resistor - feedback,R71 R72,2,precision divider,0805,TNPW0805,Vishay,"0.1%. Sums VCC_MAIN and VEE_MAIN so the loop regulates total secondary volts and the rails stay balanced."
+Resistor - control,R73-R85,~13,assorted,0805,RC0805,Yageo,"Oscillator Rt, dead time, compensation network, comparator thresholds, preloads (2k2 per aux rail)."
+Fuse,F10,1,30A ATO blade,PCB holder,-,Littelfuse,Per-board fuse. Two boards need a 60-80A main fuse at the battery.
+Connector - power in,J10,1,B+ / ground,bolted lug or 4AWG terminal,-,-,"15mm trace plus a soldered 2.5mm2 busbar is mandatory here, not optional."
+Connector - power out,J11,1,rail output,screw terminal / bolted lug,-,-,"VCC_MAIN, VEE_MAIN, PWR_GND (secondary centre tap). Shortest possible run to the amp board star point."
+Connector - aux,J12,1,aux rails out,4-pin,-,-,+/-35V raw to the amp board regulators.
+Connector - sync,J13,1,2-pin sync,header,-,-,"SYNC and SMPS_GND. WIRE THIS BETWEEN THE TWO UNITS with a short shielded pair - see docs/03 section 3.6."
+Connector - control,J14,1,shutdown in,2-pin,-,-,From the amp board protection latch.
+Hardware,-,7,M3 screw + insulator pad,-,0.23mm alumina,-,MOSFETs and rectifiers to the heatsink wall.
+Hardware,-,1,aluminium shield partition,2mm,-,-,Between PSU board and amp board. Bonded to chassis.

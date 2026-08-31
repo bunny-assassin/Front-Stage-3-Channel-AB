@@ -1,0 +1,29 @@
+# FS-3W design automation toolchain.
+#
+# Create the venv with --system-site-packages so that `import pcbnew` (installed
+# by the KiCad system package, not pip) resolves:
+#
+#     python3 -m venv --system-site-packages .venv
+#     source .venv/bin/activate
+#     pip install -r tools/requirements.txt
+#
+# tools/design_calcs.py and tools/channel_netlist.py need none of this; they are
+# standard library only and must stay that way.
+
+# Programmatic .kicad_sch generation. There is no schematic IPC API in KiCad 9/10,
+# so this writes S-expressions directly and works with KiCad closed.
+kicad-sch-api>=0.5.6
+
+# Official IPC API bindings. Only needed on KiCad 11+, where the SWIG pcbnew
+# module is removed. On KiCad 9/10 use pcbnew from the system package instead.
+kicad-python>=0.7.1
+
+# Geometry for the custom layout checks in tools/check_layout.py: ground-split
+# crossing, output loop area, inductor separation.
+shapely>=2.0
+
+# Reading and diffing generated netlists and BOMs.
+pandas>=2.0
+
+# Test harness for the generators and the layout checks.
+pytest>=8.0

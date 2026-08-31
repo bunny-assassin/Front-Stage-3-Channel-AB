@@ -1,0 +1,118 @@
+FS-3W channel -- loop gain, phase margin, closed-loop response
+
+* Loop gain is measured by current injection across a break at the feedback
+* divider node, which tools/gen_spice.py leaves deliberately unconnected for
+* exactly this purpose. LBREAK is a short at DC, so the operating point is the
+* real closed-loop one, and an open at AC, so IINJ's current splits the loop.
+*
+* Series voltage injection is the more familiar method and was tried first, but
+* the extra voltage-source branch stops the DC solve from converging on this
+* circuit -- ngspice then falls back to a transient operating point and reports
+* a bogus one. Current injection keeps the DC path purely resistive.
+*
+* The method has a known error floor of Z(FB)/Zin(Q1B_B), about 109/116k or
+* -60 dB, so readings below roughly -50 dB should not be trusted. Everything
+* that matters here is well above that.
+*
+* Sign convention: T is defined so that it is positive real at low frequency,
+* which makes phase margin 180 + phase(T) at the unity-gain crossing.
+
+.include models.lib
+.include channel_core.net
+
+.param rload=2 cload=1p rsrc=2.5k
+
+Vin    SRC 0 DC 0 AC 0
+Lbreak FB Q1B_B 1e5
+Iinj   Q1B_B FB AC 1
+.include testbench.inc
+
+* At 2 ohm the default Newton settings stall and ngspice quietly substitutes a
+* transient operating point. rshunt is what fixes it: a 100 M resistor from every
+* node to ground keeps the high-impedance VAS and bias nodes from going singular
+* during iteration. 1e8 is a deliberate compromise -- 1e6 perturbs the answer
+* (35.9 mA instead of 44.5), 1e9 does not converge.
+.options reltol=1e-4 abstol=1e-11 itl1=1000 rshunt=1e8
+
+.control
+* Leave units at radians. With `set units=degrees`, ph() returns degrees and the
+* explicit 180/pi below silently scales the phase by 57.3, which turns a healthy
+* 104 degree phase margin into a nonsensical -4163.
+set units=radians
+
+* Precondition. A stability result taken at the wrong bias is worthless: with the
+* output stage off, the followers lose 30-odd dB, the loop looks slow and
+* beautifully stable, and none of it means anything. Check the operating point
+* before believing any number below.
+op
+let iq_check = 1000*(v(Q12_E)-v(OUT_STAR))/0.22
+let dc_check = abs(v(OUT_STAR)-v(SPK_OUT))
+echo "=== precondition ======================================================="
+echo "Iq per output device (mA) must be 45 +/- 5, DC solve error must be ~0:"
+print iq_check dc_check
+
+ac dec 200 1 100MEG
+
+* Loop gain, and the forward gain that produces it. Two different frequencies
+* get called "unity gain" in the design notes and they differ by the feedback
+* factor of 20.1, so both are reported explicitly:
+*   f_aol0  open-loop gain crosses 0 dB      -- this is the gm/(2*pi*Cdom) figure
+*   ulgf    LOOP gain crosses 0 dB           -- this is where phase margin lives
+* ph() is used rather than cph() because cph's cumulative unwrapping goes wrong
+* over a sweep this wide, and at the crossing the true phase is inside +/-180
+* anyway.
+let T    = -v(FB)/v(Q1B_B)
+let Tdb  = db(mag(T))
+let Tph  = 180*ph(T)/pi
+let Aol  = -v(OUT_STAR)/v(Q1B_B)
+let Aodb = db(mag(Aol))
+
+echo ""
+echo "=== forward gain ======================================================="
+meas ac aol_dc  find Aodb at=10
+meas ac f_aol0  when Aodb=0 cross=1
+echo "compare f_aol0 with the design figure gm/(2*pi*Cdom) = 2.28 MHz"
+
+echo ""
+echo "=== loop gain, 2 ohm resistive ========================================="
+meas ac gain_10   find Tdb at=10
+meas ac gain_1k   find Tdb at=1k
+meas ac gain_20k  find Tdb at=20k
+meas ac ulgf      when Tdb=0 cross=1
+meas ac ph_ulgf   find Tph when Tdb=0 cross=1
+let pm = 180 + ph_ulgf
+echo "phase margin, degrees (gate: >= 60):"
+print pm
+
+echo ""
+echo "=== gain margin ========================================================"
+meas ac f_180 when Tph=-179 cross=1
+meas ac gm    find Tdb when Tph=-179 cross=1
+echo "gain margin is -gm dB; gate is >= 10 dB"
+
+* ---------------------------------------------------------------------------
+* Closed-loop response. Zeroing IINJ leaves LBREAK on its own, and a 1e5 H
+* inductor is not a short at audio frequencies, so the break has to be shunted
+* with a milliohm resistor to genuinely close the loop.
+* ---------------------------------------------------------------------------
+alter @iinj[acmag] = 0
+alter @vin[acmag] = 1
+alter @lbreak[inductance] = 1e-12
+ac dec 100 1 10MEG
+
+echo ""
+echo "=== closed loop ========================================================"
+let Adb = db(mag(v(SPK_OUT)))
+meas ac av_1k  find Adb at=1k
+meas ac av_20k find Adb at=20k
+meas ac f_3db  when Adb=av_1k-3 cross=1
+echo "gate: 26.1 dB nominal (x20.1), flat to 20 kHz, -3 dB above 300 kHz"
+
+echo ""
+echo "=== peaking check ======================================================"
+echo "any closed-loop peak above the 1 kHz level is a phase-margin warning"
+let peak = vecmax(Adb)
+print peak av_1k
+
+.endc
+.end

@@ -1,0 +1,140 @@
+* ============================================================================
+* FS-3W device models
+* ============================================================================
+*
+* PROVENANCE WARNING -- READ THIS BEFORE TRUSTING A THD NUMBER.
+*
+* These are Gummel-Poon models constructed from datasheet headline parameters
+* (Vceo, Ic, hFE range, fT, Cob, Pd) rather than from vendor-supplied model
+* cards. That makes them adequate for:
+*
+*   - DC operating point verification
+*   - loop gain magnitude and phase, and therefore phase margin
+*   - relative stability trends (compensation, capacitive load)
+*   - slew rate
+*   - qualitative crossover behaviour and bias sensitivity
+*
+* and NOT adequate for:
+*
+*   - absolute THD figures
+*   - noise figures
+*
+* Before Phase 0 is signed off, replace the output, driver and VAS models with
+* vendor cards (onsemi publish NJW0281/NJW0302; Toshiba publish TTC004B/TTA004B
+* via Ultra Librarian) and re-run. The gates in docs/07 that depend on absolute
+* distortion must be evaluated against vendor models.
+*
+* Key nonlinearity for this design is high-current hFE droop in the output
+* devices, which is what sets large-signal distortion at 2 ohm. That is
+* controlled by IKF, set here to roughly half the rated continuous current per
+* the usual relationship for these device classes.
+* ============================================================================
+
+* ---------------------------------------------------------------------------
+* Output devices: NJW0281G / NJW0302G, TO-3P, 250 V, 15 A, 150 W
+* fT 30 MHz (NPN) / 20 MHz (PNP) -> TF = 1/(2*pi*fT)
+* ---------------------------------------------------------------------------
+.model QNJW0281 NPN (IS=2e-13 BF=110 NF=1.0 VAF=250 IKF=8 ISE=2e-11 NE=1.7
++ BR=4 NR=1.0 VAR=25 IKR=2 ISC=2e-11 NC=1.9
++ RB=2.0 IRB=0.1 RBM=0.5 RE=0.02 RC=0.05
++ CJE=2.2n VJE=0.70 MJE=0.40 CJC=600p VJC=0.60 MJC=0.50 XCJC=0.6
++ TF=5.3n XTF=12 VTF=12 ITF=6 PTF=0 TR=1u
++ XTB=1.5 EG=1.11 XTI=3 FC=0.5)
+
+.model QNJW0302 PNP (IS=2.5e-13 BF=105 NF=1.0 VAF=220 IKF=7.5 ISE=3e-11 NE=1.7
++ BR=4 NR=1.0 VAR=25 IKR=2 ISC=3e-11 NC=1.9
++ RB=2.5 IRB=0.1 RBM=0.6 RE=0.02 RC=0.06
++ CJE=2.6n VJE=0.70 MJE=0.40 CJC=750p VJC=0.60 MJC=0.50 XCJC=0.6
++ TF=8.0n XTF=12 VTF=12 ITF=6 PTF=0 TR=1.5u
++ XTB=1.5 EG=1.11 XTI=3 FC=0.5)
+
+* ---------------------------------------------------------------------------
+* Drivers: MJE15032 / MJE15033, TO-220, 250 V, 8 A, 50 W, fT 30 MHz
+* ---------------------------------------------------------------------------
+.model QMJE15032 NPN (IS=6e-14 BF=90 NF=1.0 VAF=200 IKF=4 ISE=1e-11 NE=1.6
++ BR=4 VAR=20 IKR=1 ISC=1e-11 NC=1.9
++ RB=3.0 RE=0.05 RC=0.15
++ CJE=700p VJE=0.70 MJE=0.40 CJC=200p VJC=0.60 MJC=0.45
++ TF=5.3n XTF=10 VTF=10 ITF=2 TR=500n
++ XTB=1.5 EG=1.11 XTI=3 FC=0.5)
+
+.model QMJE15033 PNP (IS=8e-14 BF=85 NF=1.0 VAF=180 IKF=4 ISE=1.5e-11 NE=1.6
++ BR=4 VAR=20 IKR=1 ISC=1.5e-11 NC=1.9
++ RB=3.5 RE=0.05 RC=0.18
++ CJE=850p VJE=0.70 MJE=0.40 CJC=250p VJC=0.60 MJC=0.45
++ TF=7.0n XTF=10 VTF=10 ITF=2 TR=700n
++ XTB=1.5 EG=1.11 XTI=3 FC=0.5)
+
+* ---------------------------------------------------------------------------
+* VAS / pre-driver: TTC004B (NPN) and TTA004B (PNP), TO-126N, 160 V, 1.5 A
+* fT 100 MHz -> TF = 1.59 n. Cob 12 pF / 17 pF at Vcb = 10 V; CJC is the
+* zero-bias value that yields that at 10 V with MJC = 0.5.
+*
+* Cob is the parameter this design is most sensitive to, because the low-Cob
+* KSA1381/KSC3503 parts these replace are EOL. Sweep CJC +/-30 % as part of the
+* compensation sensitivity check in docs/02 section 2.6.
+* ---------------------------------------------------------------------------
+.model QTTC004B NPN (IS=3e-14 BF=200 NF=1.0 VAF=180 IKF=0.5 ISE=5e-13 NE=1.5
++ BR=5 VAR=25 IKR=0.2 ISC=5e-13 NC=1.9
++ RB=6 RE=0.10 RC=0.50
++ CJE=45p VJE=0.70 MJE=0.35 CJC=50p VJC=0.60 MJC=0.50
++ TF=1.59n XTF=4 VTF=10 ITF=0.4 TR=200n
++ XTB=1.5 EG=1.11 XTI=3 FC=0.5)
+
+.model QTTA004B PNP (IS=4e-14 BF=200 NF=1.0 VAF=160 IKF=0.5 ISE=8e-13 NE=1.5
++ BR=5 VAR=25 IKR=0.2 ISC=8e-13 NC=1.9
++ RB=7 RE=0.10 RC=0.60
++ CJE=60p VJE=0.70 MJE=0.35 CJC=71p VJC=0.60 MJC=0.50
++ TF=1.59n XTF=4 VTF=10 ITF=0.4 TR=300n
++ XTB=1.5 EG=1.11 XTI=3 FC=0.5)
+
+* ---------------------------------------------------------------------------
+* Small signal: BC847C / BC857C (also used for the BCM847BS / BCM857BS duals,
+* which are two of the same die in one package)
+* ---------------------------------------------------------------------------
+.model QBC847C NPN (IS=1e-14 BF=520 NF=1.0 VAF=63 IKF=0.10 ISE=4e-16 NE=1.4
++ BR=5 VAR=20 IKR=0.05 ISC=1e-14 NC=1.9
++ RB=10 RE=0.5 RC=0.6
++ CJE=11.5p VJE=0.68 MJE=0.34 CJC=5.2p VJC=0.55 MJC=0.34
++ TF=0.53n XTF=4 VTF=10 ITF=0.15 TR=40n
++ XTB=1.5 EG=1.11 XTI=3 FC=0.5)
+
+.model QBC857C PNP (IS=1.2e-14 BF=500 NF=1.0 VAF=52 IKF=0.10 ISE=6e-16 NE=1.4
++ BR=5 VAR=20 IKR=0.05 ISC=1e-14 NC=1.9
++ RB=12 RE=0.6 RC=0.7
++ CJE=13p VJE=0.68 MJE=0.34 CJC=6.5p VJC=0.55 MJC=0.34
++ TF=0.64n XTF=4 VTF=10 ITF=0.15 TR=60n
++ XTB=1.5 EG=1.11 XTI=3 FC=0.5)
+
+* ---------------------------------------------------------------------------
+* Red LED used as a 1.8 V voltage reference for the current sources.
+* Tuned so Vf = 1.84 V at 1.88 mA, which is the design operating point.
+* It is a reference, not an indicator -- see bom/README.md.
+* ---------------------------------------------------------------------------
+.model DLEDRED D (IS=1e-19 N=1.9 RS=2.0 CJO=25p BV=5 IBV=1u)
+
+* ---------------------------------------------------------------------------
+* BZX84C5V1 bias spreader failsafe clamp
+* ---------------------------------------------------------------------------
+.model DZ5V1 D (IS=1e-14 N=1.05 RS=15 BV=5.1 IBV=5m CJO=100p)
+
+* ---------------------------------------------------------------------------
+* OPA1642 dual JFET op-amp, behavioural: single dominant pole, GBW 11 MHz,
+* open-loop gain 120 dB, output clamped to the rails. Adequate for the DC
+* servo, which only has to act below 16 Hz.
+* ---------------------------------------------------------------------------
+* Limiting is done with tanh rather than min/max on purpose. A min/max clamp has
+* a discontinuous derivative at the clamp point, and Newton-Raphson cannot solve
+* across it -- ngspice abandons the DC solve, silently falls back to a transient
+* operating point, and reports whatever state the transient happened to reach.
+* That failure looks like a plausible answer, which is what makes it dangerous.
+.subckt OPA1642 inp inn out vcc vee
+Berr  err 0 V = tanh(V(inp)-V(inn))
+* dominant pole at 11 Hz; times 1e6 of gain gives GBW = 11 MHz
+Rp    err p1 1k
+Cp    p1  0  14.5u
+Bp    p2  0  V = 1e6 * V(p1)
+Bo    o1  0  V = 0.5*(V(vcc)+V(vee)) + (0.5*(V(vcc)-V(vee))-1.5)
++                * tanh((V(p2)-0.5*(V(vcc)+V(vee)))/(0.5*(V(vcc)-V(vee))-1.5))
+Ro    o1  out 25
+.ends OPA1642
