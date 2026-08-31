@@ -4,7 +4,8 @@
 # by the KiCad system package, not pip) resolves:
 #
 #     python3 -m venv --system-site-packages .venv
-#     source .venv/bin/activate
+#     source .venv/bin/activate          # bash/zsh
+#     source .venv/bin/activate.fish     # fish
 #     pip install -r tools/requirements.txt
 #
 # tools/design_calcs.py and tools/channel_netlist.py need none of this; they are

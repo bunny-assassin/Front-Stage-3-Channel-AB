@@ -1,0 +1,72 @@
+{
+  "board": {
+    "3dviewports": [],
+    "design_settings": {
+      "defaults": {}
+    },
+    "ipc2581": {},
+    "layer_presets": [],
+    "viewports": []
+  },
+  "boards": [],
+  "cvpcb": {
+    "equivalence_files": []
+  },
+  "erc": {
+    "erc_exclusions": [],
+    "meta": {
+      "version": 0
+    },
+    "pin_map": []
+  },
+  "libraries": {
+    "pinned_footprint_libs": [],
+    "pinned_symbol_libs": [
+      "FS3W"
+    ]
+  },
+  "meta": {
+    "filename": "fs3w-amp.kicad_pro",
+    "version": 3
+  },
+  "net_settings": {
+    "classes": [],
+    "meta": {
+      "version": 4
+    }
+  },
+  "pcbnew": {
+    "last_paths": {},
+    "page_layout_descr_file": ""
+  },
+  "schematic": {
+    "legacy_lib_dir": "",
+    "legacy_lib_list": [],
+    "spice_current_sheet_as_root": false,
+    "spice_save_all_currents": false,
+    "spice_save_all_voltages": false
+  },
+  "sheets": [
+    [
+      "5f558109-1090-8420-73bf-b46ae2115c7e",
+      "Root"
+    ],
+    [
+      "f556896c-b8cc-3b1e-ea73-0eafb3d68594",
+      "AMP_CHANNEL"
+    ],
+    [
+      "6e6857ff-9297-55dc-9a55-5b43839453fc",
+      "REGULATORS"
+    ],
+    [
+      "26752f20-02d6-06ec-038c-33c02e240942",
+      "PROTECTION"
+    ],
+    [
+      "5ea2d81a-89e0-cdc8-9baf-7cd1ff38cdfe",
+      "INTERFACE"
+    ]
+  ],
+  "text_variables": {}
+}

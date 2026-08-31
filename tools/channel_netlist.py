@@ -47,10 +47,14 @@ L = "Device:L"
 POT = "Device:R_Potentiometer_Trim"
 LED = "Device:LED"
 ZEN = "Device:D_Zener"
-NPN = "Device:Q_NPN_BCE"
-PNP = "Device:Q_PNP_BCE"
-NMOS = "Device:Q_NMOS_GDS"
-OPA = "Amplifier_Operational:OPA1642"
+# KiCad 10 split the Device transistor symbols into dedicated libraries.
+NPN = "Transistor_BJT:Q_NPN_BCE"
+PNP = "Transistor_BJT:Q_PNP_BCE"
+NMOS = "Transistor_FET:Q_NMOS_GDS"
+# OPA1642 is not in the KiCad 10 symbol lib. TL072 is the same 8-pin dual
+# pinout and embeds cleanly (Opamp_Dual's Sim model makes KiCad 10 refuse the file).
+OPA = "Amplifier_Operational:TL072"
+INA = "FS3W:INA1651"
 
 # Footprint shorthands. Custom footprints marked FS3W: must be created, see docs/07.
 F_0805 = "Resistor_SMD:R_0805_2012Metric"
@@ -75,7 +79,7 @@ COMPONENTS: list[Comp] = [
     Comp("R1", "100R", R, F_0805, ("1", "2"), "input series, RF/ESD", tolerance="0.1%"),
     Comp("R2", "100R", R, F_0805, ("1", "2"), "input series, RF/ESD", tolerance="0.1%"),
     Comp("R7", "1M", R, F_0805, ("1", "2"), "COM pin option, see docs/02", dnp=True),
-    Comp("U1", "INA1651IPW", "Amplifier_Audio:INA1651", F_TSSOP14,
+    Comp("U1", "INA1651IPW", INA, F_TSSOP14,
          ("IN+", "IN-", "COM", "REF", "VMID_IN", "VMID_OUT", "OUT", "VCC", "VEE"),
          "balanced line receiver, unity gain, 91 dB CMRR"),
     Comp("C1", "1u", C, F_C0805, ("1", "2"), "VMID bypass"),

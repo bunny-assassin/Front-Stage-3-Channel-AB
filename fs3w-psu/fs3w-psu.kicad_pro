@@ -1,0 +1,56 @@
+{
+  "board": {
+    "3dviewports": [],
+    "design_settings": {
+      "defaults": {}
+    },
+    "ipc2581": {},
+    "layer_presets": [],
+    "viewports": []
+  },
+  "boards": [],
+  "cvpcb": {
+    "equivalence_files": []
+  },
+  "erc": {
+    "erc_exclusions": [],
+    "meta": {
+      "version": 0
+    },
+    "pin_map": []
+  },
+  "libraries": {
+    "pinned_footprint_libs": [],
+    "pinned_symbol_libs": [
+      "FS3W"
+    ]
+  },
+  "meta": {
+    "filename": "fs3w-psu.kicad_pro",
+    "version": 3
+  },
+  "net_settings": {
+    "classes": [],
+    "meta": {
+      "version": 4
+    }
+  },
+  "pcbnew": {
+    "last_paths": {},
+    "page_layout_descr_file": ""
+  },
+  "schematic": {
+    "legacy_lib_dir": "",
+    "legacy_lib_list": [],
+    "spice_current_sheet_as_root": false,
+    "spice_save_all_currents": false,
+    "spice_save_all_voltages": false
+  },
+  "sheets": [
+    [
+      "867230ea-e0f2-ad45-b63b-9bba390b3e23",
+      "Root"
+    ]
+  ],
+  "text_variables": {}
+}
