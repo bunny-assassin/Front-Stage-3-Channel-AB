@@ -119,21 +119,26 @@ design requires:
 | `FS3W:TO-3P_Vertical_HeatsinkWall` | vertical, tab to wall, 5.45 mm pad pitch, courtyard extending to the board edge, keepout for the M3 bolt and the mounting boss |
 | `FS3W:TO-220-3_Vertical_HeatsinkWall` | same convention |
 | `FS3W:TO-126N_Vertical_HeatsinkWall` | Toshiba TO-126N is 8.0 × 11 × 3.25 mm |
-| `FS3W:R_Axial_MPC71_3W` | non-inductive 3 W ballast resistor |
-| `FS3W:C_Film_5mm_P5.00mm`, `FS3W:C_Film_10mm_P15.00mm` | film capacitors |
+| `FS3W:TO-247-3_Vertical_HeatsinkWall` | PSU rectifiers, same wall-mount convention |
+| `FS3W:R_TO220-2_PWR221T` | Bourns PWR221T-20 / Caddock MP930; this is what the BoM actually orders |
+| `FS3W:R_Axial_MPC71_3W` | alternate only — axial 3 W non-inductive |
+| `FS3W:C_Film_5mm_P5.00mm`, `FS3W:C_Film_P10.00mm`, `FS3W:C_Film_10mm_P15.00mm` | film capacitors, 5 / 10 / 15 mm pitch |
 | `FS3W:L_AirCore_12mm` | output inductor, 12 mm ID, with a keepout annotation recording the ≥ 25 mm separation and perpendicular-axis rule |
-| `FS3W:XFMR_ETD44` | transformer, with the no-pour-under-core-legs keepout |
+| `FS3W:XFMR_ETD44` | 18-pin CPH-ETD44-1S-18P, with the no-pour-under-core-legs keepout |
 | `FS3W:Busbar_Pad_*` | mask-free reinforcement rectangles |
-| `FS3W:Fuse_ATO_Blade` | 30 A blade fuse holder |
+| `FS3W:Fuse_ATO_Blade` | Littelfuse 178.6165.0001 PCB 4-pin ATO holder |
 
-Symbols: `INA1650`/`INA1651` (TSSOP-14, pins per datasheet §5 — note `INA1651` is also
-TSSOP-14 with pins 5–9 mostly NC), and the `SG3525A`. Prefer generating these from
-manufacturer CAD (Toshiba and TI both publish Ultra Librarian models) over drawing them,
-then verify pin numbering against the datasheet by hand. **A wrong pin number on a
-TSSOP-14 costs a board spin.**
+**Status: generated.** `python3 tools/gen_lib.py` writes `lib/FS3W.pretty` and `lib/FS3W.kicad_sym`. `python3 tools/check_lib.py` is the gate: pad-1 at −X, pitches match the datasheet constants, symbols present. Pad-1 orientation and the 3D-model reasons are in `lib/README.md`.
 
-**Gate:** every footprint has a 3D model or an explicitly documented reason it does not;
-every custom footprint's pad-1 orientation is verified against the datasheet drawing.
+**Not invented:** Omron `G4A-1A-PE DC12` waits on a traced mechanical drawing. Do not use a G8P footprint.
+
+Symbols: `INA1650`/`INA1651`/`SG3525A` are in `lib/FS3W.kicad_sym`. Pin numbers were taken
+from TI SBOS818 §5 and onsemi SG3525A-D, not from Ultra Librarian. **A wrong pin number
+on a TSSOP-14 costs a board spin** — `tools/check_lib.py` asserts the symbol file contains
+those pin names.
+
+**Gate: passed.** `python3 tools/check_lib.py`. Pad-1 at −X; pitches match datasheet
+constants; 3D-model reasons are in `lib/README.md`.
 
 ### Phase 2 — Generate the schematic
 
