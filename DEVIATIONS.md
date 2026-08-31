@@ -39,8 +39,15 @@ Recorded while implementing Phase 1. Do not silently fold these back.
    to symbols, not on pins — they have no Python netlist yet. `check_schematic.py`
    waives `pin_not_connected`, `label_dangling`, `pin_not_driven`, and
    `power_pin_not_driven` on those sheets, plus the channel mute FET gate
-   (`Q116`/`Q216`/`Q316`) which is driven from the protection sheet. Auto-wires
-   are not generated: a Manhattan stub along a pin column shorts every pin it
-   crosses. Connectivity is labels. `kicad-sch-api`'s 90°/270° pin transform is
-   swapped versus KiCad 10, so the generator inverts those angles when placing
-   labels.
+   (`Q116`/`Q216`/`Q316`) which is driven from the protection sheet. Nets with
+   two to four connections are wired with a stub-then-jog router that refuses
+   any segment within 0.64 mm of a foreign pin; high-fanout nets stay
+   labels-only (docs/07). `kicad-sch-api`'s 90°/270° pin transform is swapped
+   versus KiCad 10, so the generator inverts those angles when placing labels.
+
+10. **Phase 3 placement.** Heatsink row coordinates match docs/05 §5.4 exactly.
+    `Q7` is `NJW0281G` (TO-3P) in the netlist; the drill table assumed a TO-126
+    TTC004B. Courtyard overlap against the adjacent drivers is waived. Input and
+    speaker terminals use Phoenix MKDS 5.08 mm footprints (KiCad 10 has no
+    `TerminalBlock_bornier-*`). Relays still have no G4A footprint. The board is
+    placed, not routed — Phase 4.

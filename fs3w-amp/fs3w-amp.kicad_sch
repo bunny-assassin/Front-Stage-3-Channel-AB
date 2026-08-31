@@ -153,7 +153,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "23ab79da-f871-4a84-9cdc-e1a3a6e4cf6a")
+			(uuid "5ed7a04e-2acb-49a4-ab78-5a0db985e74a")
 		)
 		(instances
 			(project "fs3w-amp"
@@ -193,7 +193,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "07e86e3f-bbde-405a-a327-eff07c6596bc")
+			(uuid "1657a47c-16a0-4cbf-ab84-01ab2fb2dfc5")
 		)
 		(instances
 			(project "fs3w-amp"
@@ -233,7 +233,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "46d3415a-5ca8-4ca5-82ff-6b26f0d53733")
+			(uuid "ba86b802-04ea-46ab-97a3-fb4ade0a64d8")
 		)
 		(instances
 			(project "fs3w-amp"
@@ -273,7 +273,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "43fc36b5-bf9b-4193-9e2e-aca4a443ab69")
+			(uuid "19954dbd-8be1-4525-84f2-be7d797d3f75")
 		)
 		(instances
 			(project "fs3w-amp"
@@ -313,7 +313,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "43ae65f2-d7e1-41c5-91f9-6d8fea57b5cb")
+			(uuid "b63d3846-49b6-4636-b934-aa3a7983ee78")
 		)
 		(instances
 			(project "fs3w-amp"
@@ -353,7 +353,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "53e55d9b-1e23-4101-a91b-3eb4e0b9cd51")
+			(uuid "2cf6567a-56af-4d15-88d7-af15ed9c8fab")
 		)
 		(instances
 			(project "fs3w-amp"
@@ -393,7 +393,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "c4e97bee-0864-486d-ac92-539339c3c621")
+			(uuid "8e130741-9036-43bf-bfb5-219643b6e125")
 		)
 		(instances
 			(project "fs3w-amp"
@@ -433,7 +433,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "4fac1735-3940-4aeb-b2f8-14562d29e957")
+			(uuid "1e59a52c-fb04-46b7-aa66-4f25dbc902f6")
 		)
 		(instances
 			(project "fs3w-amp"
@@ -452,7 +452,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "1ff41c2f-e3f3-4e4d-a42f-466ba62c7a53")
+		(uuid "5a414455-4a93-41ed-9afa-b29c97b4bc37")
 	)
 	(label "IN_COLD_T"
 		(at 25.4 116.84 0)
@@ -462,7 +462,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6b3f2313-7ee6-40e4-8c75-3fe877b7a76a")
+		(uuid "d2ddfa9f-c446-4c29-9541-eca312b9733e")
 	)
 	(label "SPK_T"
 		(at 25.4 104.14 0)
@@ -472,7 +472,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "78f8bae6-9c6c-4a37-9171-f75fbae4b49b")
+		(uuid "57c16b7e-c13e-4297-b1d4-72e69a533639")
 	)
 	(label "VCC_MAIN"
 		(at 25.4 91.44 0)
@@ -482,7 +482,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "9addaa1e-59f3-4aa6-abf9-928b18bebfb6")
+		(uuid "677d4eb0-44cd-4a33-970e-683bd047e952")
 	)
 	(label "VEE_MAIN"
 		(at 25.4 78.74 0)
@@ -492,7 +492,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ae72458a-4423-44ef-a314-fa1af81f1f8c")
+		(uuid "c2c4c371-3bff-40b9-9170-3fd2d0a967e5")
 	)
 	(label "VCC_FE"
 		(at 25.4 66.04 0)
@@ -502,7 +502,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6f5f5255-89fd-4ba3-83bc-4fb4250e3e42")
+		(uuid "065ade55-7acf-46d1-af69-3418ca24fcd3")
 	)
 	(label "VEE_FE"
 		(at 25.4 53.34 0)
@@ -512,7 +512,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2fc8fa83-f205-4c24-be54-b618cde9338a")
+		(uuid "6e742771-e29c-4643-8b8b-0a30e85fffc7")
 	)
 	(label "VCC_15"
 		(at 25.4 40.64 0)
@@ -522,7 +522,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ae6a5c0b-27de-4f85-9941-f5723fbe400e")
+		(uuid "c82c2974-21b0-4be1-8451-17c72075fe3d")
 	)
 	(label "VEE_15"
 		(at 114.3 35.56 0)
@@ -532,7 +532,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "61b4140c-c8e4-461c-9ee9-03f6eed1ec36")
+		(uuid "de935d9c-848b-4f3f-8cea-d95bb37a879b")
 	)
 	(label "SIG_GND"
 		(at 114.3 48.26 0)
@@ -542,7 +542,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "3928ab89-beb6-4ea8-875f-efc115e49f24")
+		(uuid "05d4170e-ce9b-4301-92aa-aef6f764185b")
 	)
 	(label "PWR_GND"
 		(at 114.3 60.96 0)
@@ -552,7 +552,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d1b94774-3e17-45a9-acf8-8fccedf44ea1")
+		(uuid "7f781671-17b2-4f11-97a9-a88ac63e4f6d")
 	)
 	(label "DC_SENSE_T"
 		(at 114.3 73.66 0)
@@ -562,7 +562,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "43ac1ae9-7350-41e0-9e7d-b90f1f583765")
+		(uuid "4c3b8521-a552-43c8-ac5c-5d2411c765d0")
 	)
 	(label "I_SENSE_T"
 		(at 114.3 86.36 0)
@@ -572,7 +572,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "62ce4a20-1436-47b6-9681-af8036cf121f")
+		(uuid "d60adbe7-c8e6-4e33-a4e1-676cee54f2f7")
 	)
 	(label "MUTE_CTL"
 		(at 114.3 99.06 0)
@@ -582,7 +582,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "0f1144ca-9c28-4569-b82e-7ce360ed3a90")
+		(uuid "fe227557-b0fa-43e2-a127-4587feb17898")
 	)
 	(label "IN_HOT_M"
 		(at 139.7 129.54 0)
@@ -592,7 +592,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "13ac92d4-0ad9-4e56-adeb-14b7c85afffe")
+		(uuid "32e99d5a-ac44-403e-a961-d8aae3cced7b")
 	)
 	(label "IN_COLD_M"
 		(at 139.7 116.84 0)
@@ -602,7 +602,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "1cc9e4e4-88e2-4e31-aa49-1bff232e22ac")
+		(uuid "9fc41f73-ff65-4a10-ae36-557790618641")
 	)
 	(label "SPK_M"
 		(at 139.7 104.14 0)
@@ -612,7 +612,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "7b4b4ab6-9ead-42b5-8ac1-dc88704fad1a")
+		(uuid "527004a3-4b39-4f7e-9c3a-066be267be5c")
 	)
 	(label "VCC_MAIN"
 		(at 139.7 91.44 0)
@@ -622,7 +622,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "00e72ef7-1c90-4bc4-b46a-8ae8edebaeab")
+		(uuid "50fa61d0-a9fd-42e2-bd1b-4c4dfd4a3f4c")
 	)
 	(label "VEE_MAIN"
 		(at 139.7 78.74 0)
@@ -632,7 +632,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "3966708f-a338-4de4-a0b5-885a46df4f1e")
+		(uuid "d57208b9-1ddd-433a-a40e-0b65a73b6aba")
 	)
 	(label "VCC_FE"
 		(at 139.7 66.04 0)
@@ -642,7 +642,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "97cf64ef-7893-4b34-a51f-c0e47475c04d")
+		(uuid "237e1d8d-5212-419a-97d2-a5d1c8ef47ea")
 	)
 	(label "VEE_FE"
 		(at 139.7 53.34 0)
@@ -652,7 +652,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ca3ed194-3286-4d71-85bd-abed8272c546")
+		(uuid "cb8a4664-f943-4878-a357-85d488581eaa")
 	)
 	(label "VCC_15"
 		(at 139.7 40.64 0)
@@ -662,7 +662,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "12982729-d157-4f2f-9a63-584cbff90722")
+		(uuid "7b6b2212-eace-4c88-8409-f106039b2f03")
 	)
 	(label "VEE_15"
 		(at 228.6 35.56 0)
@@ -672,7 +672,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "19f84bf8-e257-4797-94a2-913e0d6ff0e3")
+		(uuid "8b91af21-f846-4f27-96c3-ba6edcba15e6")
 	)
 	(label "SIG_GND"
 		(at 228.6 48.26 0)
@@ -682,7 +682,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "fcf224d9-d56b-443a-9d92-83dfd11b9997")
+		(uuid "ab56fe0e-68f2-4831-a70c-495e3e6cc21c")
 	)
 	(label "PWR_GND"
 		(at 228.6 60.96 0)
@@ -692,7 +692,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "58debe1d-ea99-4d20-afb6-22e0c98299f6")
+		(uuid "b09b96cd-19a5-437e-a863-284913884b09")
 	)
 	(label "DC_SENSE_M"
 		(at 228.6 73.66 0)
@@ -702,7 +702,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "cf1b7f41-d552-4631-b961-67f1da7f79f9")
+		(uuid "96082337-f605-4501-acfd-f7974007500a")
 	)
 	(label "I_SENSE_M"
 		(at 228.6 86.36 0)
@@ -712,7 +712,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "76117de2-9c2e-4e63-bfdb-66d681789cf3")
+		(uuid "adf192b4-0642-44ae-84f0-ea71eb5b0a65")
 	)
 	(label "MUTE_CTL"
 		(at 228.6 99.06 0)
@@ -722,7 +722,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "84bf1400-2974-4e1f-9dfe-c01c3b32c228")
+		(uuid "75f3048c-6247-4b28-b7ce-0b8156855c0e")
 	)
 	(label "IN_HOT_B"
 		(at 254 129.54 0)
@@ -732,7 +732,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b1a85cb4-400b-4656-980d-300b87c2326c")
+		(uuid "4b358fdc-961d-49fa-9161-91c1331a982d")
 	)
 	(label "IN_COLD_B"
 		(at 254 116.84 0)
@@ -742,7 +742,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c4d7c69a-0bf5-4851-bbc4-4f6e8896cd78")
+		(uuid "dc776e8c-3db0-4563-84cf-f2ed4cedf854")
 	)
 	(label "SPK_B"
 		(at 254 104.14 0)
@@ -752,7 +752,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b3bdadb5-5dec-4784-8c4a-4aad34499ebe")
+		(uuid "dcfe8518-22de-4403-85e8-2381bf8bcad1")
 	)
 	(label "VCC_MAIN"
 		(at 254 91.44 0)
@@ -762,7 +762,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "46469980-10b2-4a6b-a92d-4e7dfe987c37")
+		(uuid "6e19847c-3671-412e-af10-05653ad65b94")
 	)
 	(label "VEE_MAIN"
 		(at 254 78.74 0)
@@ -772,7 +772,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "97f7db0b-2dd2-482c-a4ae-cc2677263f23")
+		(uuid "c95fad4f-4065-4a82-8eff-95ad78688f0c")
 	)
 	(label "VCC_FE"
 		(at 254 66.04 0)
@@ -782,7 +782,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "db5f962e-feb3-4efa-a0f0-d21f032a8cc4")
+		(uuid "7117f7fd-4c82-48fa-85e8-89e38aef63e1")
 	)
 	(label "VEE_FE"
 		(at 254 53.34 0)
@@ -792,7 +792,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "3ddb1284-fb74-487f-bb61-332b8192fc9e")
+		(uuid "1339fb0d-d9a0-404f-a812-8d9d9283893b")
 	)
 	(label "VCC_15"
 		(at 254 40.64 0)
@@ -802,7 +802,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "28752de7-1773-4060-882d-d77112db359e")
+		(uuid "fdfcca65-73bd-4950-a4d4-c184b84e12cb")
 	)
 	(label "VEE_15"
 		(at 342.9 35.56 0)
@@ -812,7 +812,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "f1a74bbc-da81-4a59-98dd-defba640b3ca")
+		(uuid "0fdeea96-ea12-4b4c-9f4d-e2ade0ee65b0")
 	)
 	(label "SIG_GND"
 		(at 342.9 48.26 0)
@@ -822,7 +822,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "bc1c3e67-f37b-43a7-95fe-9654f48b8b44")
+		(uuid "b6e71311-c2e9-4ac5-9c32-7f39e1020e32")
 	)
 	(label "PWR_GND"
 		(at 342.9 60.96 0)
@@ -832,7 +832,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6412f53e-2ca5-4322-942a-ea6a992d76b9")
+		(uuid "858d54db-78c4-4783-98da-75dc0035c481")
 	)
 	(label "DC_SENSE_B"
 		(at 342.9 73.66 0)
@@ -842,7 +842,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "98f4ae15-85b8-419c-b0db-25723188a2be")
+		(uuid "921c216a-e251-4643-8d24-136a26860eff")
 	)
 	(label "I_SENSE_B"
 		(at 342.9 86.36 0)
@@ -852,7 +852,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "01581821-aa08-4c02-84dd-eaa5fcc7bd3d")
+		(uuid "25b9c32e-f3ed-4564-8d15-ec86cf3c0d02")
 	)
 	(label "MUTE_CTL"
 		(at 342.9 99.06 0)
@@ -862,7 +862,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "a45c14de-5667-40af-9048-1de1139bb025")
+		(uuid "b9a46003-c0fd-4993-8d66-c7c75bf7bea7")
 	)
 	(label "AUX_POS"
 		(at 25.4 299.72 0)
@@ -872,7 +872,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2efd7ca8-fa96-4aa2-99ab-3d0b20dce4c7")
+		(uuid "0948bb60-5d21-48ea-8393-c924025a220b")
 	)
 	(label "AUX_NEG"
 		(at 25.4 280.035 0)
@@ -882,7 +882,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c3c16a4a-9dc3-4b34-817a-183807b23937")
+		(uuid "7fbee261-044f-4ace-adcb-d2fcbe53d386")
 	)
 	(label "VCC_FE"
 		(at 25.4 260.35 0)
@@ -892,7 +892,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6e06a528-e3b9-445d-ad47-64eafeb5651c")
+		(uuid "8a4a0c86-ce4c-45db-bc08-db3ad5da0f6f")
 	)
 	(label "VEE_FE"
 		(at 25.4 240.665 0)
@@ -902,7 +902,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "941ddfa0-d0d7-4975-8041-70be89720b34")
+		(uuid "11d229c8-2c77-4c19-9139-f125e51fd85b")
 	)
 	(label "VCC_15"
 		(at 25.4 220.98 0)
@@ -912,7 +912,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2012ec76-29cc-48ae-b4da-7684eebb0cad")
+		(uuid "43ac0a20-f8af-4419-99ac-c3532e6f718f")
 	)
 	(label "VEE_15"
 		(at 127 220.98 0)
@@ -922,7 +922,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d865896d-e1d2-41f8-a751-2a498c4a2b53")
+		(uuid "31cedd13-f5e2-4201-9def-e2d5ad846ec3")
 	)
 	(label "SIG_GND"
 		(at 127 240.665 0)
@@ -932,7 +932,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "40f3fc30-d64f-4f9c-aea1-871a63c22d22")
+		(uuid "a4e123d4-8dac-434e-b9ef-58c9ca7aa703")
 	)
 	(label "PWR_GND"
 		(at 127 260.35 0)
@@ -942,7 +942,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "894709d1-8d7f-4fb3-a969-6d71c219bd98")
+		(uuid "44997ef7-bffc-4a1c-9daa-22b28df92d07")
 	)
 	(label "VCC_MAIN"
 		(at 127 280.035 0)
@@ -952,7 +952,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "824faeb6-6e5e-464c-9174-2a33609c18d3")
+		(uuid "b4c831da-6986-43f7-8bb7-da220d68cace")
 	)
 	(label "VEE_MAIN"
 		(at 127 299.72 0)
@@ -962,7 +962,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d370458d-f92d-47a8-b84f-397c6d04648d")
+		(uuid "089975d1-b37b-4a00-b247-d2abd2d208e6")
 	)
 	(label "DC_SENSE_T"
 		(at 139.7 299.72 0)
@@ -972,7 +972,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "12ef9066-6488-4b5c-a249-74b6c2e207b1")
+		(uuid "7b7905fc-28e3-4bd1-a77e-d5d287e57ac6")
 	)
 	(label "DC_SENSE_M"
 		(at 139.7 289.8775 0)
@@ -982,7 +982,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "1a4cec6e-4c80-475a-98d3-88c1380d7ef6")
+		(uuid "0277fd3b-f2c1-497a-960e-ce1508a7f2c3")
 	)
 	(label "DC_SENSE_B"
 		(at 139.7 280.035 0)
@@ -992,7 +992,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e6d340cd-f5d1-4b51-9ed6-67ce24066086")
+		(uuid "0face527-1436-4155-a413-516a319b6510")
 	)
 	(label "I_SENSE_T"
 		(at 139.7 270.1925 0)
@@ -1002,7 +1002,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2c0d4b12-4f7f-466c-ab3c-c4601f9d7345")
+		(uuid "d154e920-e01c-4218-8a82-174fce9dfbb5")
 	)
 	(label "I_SENSE_M"
 		(at 139.7 260.35 0)
@@ -1012,7 +1012,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "f249d784-56fc-4bc5-9b04-a984b2dac512")
+		(uuid "0bbe7951-12e3-4ad1-aed4-c8c2bb3cf704")
 	)
 	(label "I_SENSE_B"
 		(at 139.7 250.5075 0)
@@ -1022,7 +1022,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2b00a95a-1ce7-4cc9-b549-16af63c3b3c9")
+		(uuid "a815973a-de13-4cd0-8898-38f14d3cc509")
 	)
 	(label "MUTE_CTL"
 		(at 139.7 240.665 0)
@@ -1032,7 +1032,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "81023e3e-bf65-44c4-a2ec-a467f12f6827")
+		(uuid "a19441e4-4f81-47d3-84e7-b6b75615ae38")
 	)
 	(label "RELAY_T"
 		(at 139.7 230.8225 0)
@@ -1042,7 +1042,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e990cd28-cd72-4a0d-a2ff-3b7aea66c4b1")
+		(uuid "840d5bfb-85f4-4c31-a45c-a40f777bae57")
 	)
 	(label "RELAY_M"
 		(at 139.7 220.98 0)
@@ -1052,7 +1052,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b7e52170-9d64-45b2-9504-8c9db4efc7a6")
+		(uuid "cacdfc43-b074-4d38-86d6-a19599b64ed6")
 	)
 	(label "RELAY_B"
 		(at 266.7 220.98 0)
@@ -1062,7 +1062,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "0ade136e-a578-4bc4-af7f-c167cd8784d7")
+		(uuid "be452dea-3612-48ce-8bc6-db53942e5b2a")
 	)
 	(label "SHUTDOWN"
 		(at 266.7 232.228571 0)
@@ -1072,7 +1072,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "f3011ce2-bfe9-48f5-aea0-9ee1a827d033")
+		(uuid "1999a38d-b815-43d3-9e23-55d8775c51bb")
 	)
 	(label "REMOTE"
 		(at 266.7 243.477143 0)
@@ -1082,7 +1082,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ebf8ca33-42e9-4431-b60d-ab043fb7bcaf")
+		(uuid "43f29373-05b1-4afa-b885-8e3d0f0bed57")
 	)
 	(label "VCC_MAIN"
 		(at 266.7 254.725714 0)
@@ -1092,7 +1092,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2c2771b4-d1ea-4d3b-85fe-ca2569466138")
+		(uuid "56789ba4-fb4f-4161-b2b0-e07c6f3d5350")
 	)
 	(label "VEE_MAIN"
 		(at 266.7 265.974286 0)
@@ -1102,7 +1102,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "5d867a5f-0c31-45bb-a521-822524f9545b")
+		(uuid "96032c2a-d404-4cf0-bac6-d7375c4f199b")
 	)
 	(label "V_BATT"
 		(at 266.7 277.222857 0)
@@ -1112,7 +1112,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e7db768d-63c8-49a3-81f3-f2783d450059")
+		(uuid "d3118da2-6234-413f-9435-9a468c969cf5")
 	)
 	(label "SIG_GND"
 		(at 266.7 288.471429 0)
@@ -1122,7 +1122,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "70cb03b2-63f3-462d-b30f-a6f54c290a9d")
+		(uuid "63080fc7-a724-404d-9c09-7e1ba702c54d")
 	)
 	(label "PWR_GND"
 		(at 266.7 299.72 0)
@@ -1132,7 +1132,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ce004d0e-9e98-4de9-b6ea-84dd3904645b")
+		(uuid "309da3a8-6105-4cda-9aaf-bf04084e574f")
 	)
 	(label "IN_HOT_T"
 		(at 279.4 299.72 0)
@@ -1142,7 +1142,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "405e514b-6706-4614-b2e2-726a9307ee85")
+		(uuid "35f28ecf-19f8-4c3f-a0a5-192cb62ea8dd")
 	)
 	(label "IN_COLD_T"
 		(at 279.4 289.8775 0)
@@ -1152,7 +1152,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6aa25e4d-fb42-4f57-8280-0967c60cabec")
+		(uuid "ed562c64-7a5d-467a-a92d-a1adb90fa2e6")
 	)
 	(label "IN_HOT_M"
 		(at 279.4 280.035 0)
@@ -1162,7 +1162,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "954bf419-4d0c-4dd2-8e16-bc0dba393909")
+		(uuid "7a4c6904-64a0-4f82-8522-7f0ad07885b2")
 	)
 	(label "IN_COLD_M"
 		(at 279.4 270.1925 0)
@@ -1172,7 +1172,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "f0483915-a215-4f31-82f4-6888e214da16")
+		(uuid "69720667-305c-4699-a8bd-4002c4300d54")
 	)
 	(label "IN_HOT_B"
 		(at 279.4 260.35 0)
@@ -1182,7 +1182,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b0610be6-fe47-4533-aa64-81fb95858ccf")
+		(uuid "ce838e44-8f8e-423b-a271-16ff6f8bc822")
 	)
 	(label "IN_COLD_B"
 		(at 279.4 250.5075 0)
@@ -1192,7 +1192,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "875d10e6-4d8f-42c7-a638-074b0ebaf916")
+		(uuid "a6c18b31-edda-4eb7-ac6f-8627382b8b42")
 	)
 	(label "SPK_T"
 		(at 279.4 240.665 0)
@@ -1202,7 +1202,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "daf6ea2d-dde8-4b3b-93bc-184855e820e4")
+		(uuid "ec1cd5e8-7ded-4367-8734-0ed9f852dcb8")
 	)
 	(label "SPK_M"
 		(at 279.4 230.8225 0)
@@ -1212,7 +1212,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "025a5db8-e2a6-48d3-b8e2-2568e869343a")
+		(uuid "b09f6fa2-c1f4-4251-842d-e0c82f9e88fa")
 	)
 	(label "SPK_B"
 		(at 279.4 220.98 0)
@@ -1222,7 +1222,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "fdd4672a-ea7c-4c77-a17f-c76a1199008f")
+		(uuid "37a87941-86cd-40bc-8ffb-18ac6100e9ce")
 	)
 	(label "VCC_MAIN"
 		(at 406.4 220.98 0)
@@ -1232,7 +1232,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "72c667f9-d6c4-494d-8ef5-d756eb135d38")
+		(uuid "0274fe95-da7e-4cab-807a-c4f1ae5e5944")
 	)
 	(label "VEE_MAIN"
 		(at 406.4 230.8225 0)
@@ -1242,7 +1242,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ed96af18-b408-4119-9824-28cfa159c94a")
+		(uuid "68e30c0f-a43d-4f66-ac7c-db1c54707fca")
 	)
 	(label "PWR_GND"
 		(at 406.4 240.665 0)
@@ -1252,7 +1252,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ee3f4372-ca1a-47f8-840c-68b35a26e37d")
+		(uuid "2d68fcd4-fd32-45f6-b4ef-193fab89837e")
 	)
 	(label "AUX_POS"
 		(at 406.4 250.5075 0)
@@ -1262,7 +1262,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "0da6851b-e363-4521-b9f7-eced92441e3b")
+		(uuid "4cc77d0c-a954-46a5-886b-c0edfe26b8ac")
 	)
 	(label "AUX_NEG"
 		(at 406.4 260.35 0)
@@ -1272,7 +1272,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "86029d54-9ed7-4a84-91c8-a7c857fa56e3")
+		(uuid "a18b9c64-635e-4ee9-9972-2b4d6f70f07e")
 	)
 	(label "REMOTE"
 		(at 406.4 270.1925 0)
@@ -1282,7 +1282,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "1847289f-64be-49e6-8c98-a01378a7536d")
+		(uuid "ba7874d1-dbc4-49de-8c33-2cc5653dca6a")
 	)
 	(label "SHUTDOWN"
 		(at 406.4 280.035 0)
@@ -1292,7 +1292,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "3da42f5e-f0c6-42a7-a4af-47fab1ff86ab")
+		(uuid "d9db91bf-613d-4ecb-baf3-6fc5286631ef")
 	)
 	(label "SIG_GND"
 		(at 406.4 289.8775 0)
@@ -1302,7 +1302,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "12ec3e31-9e58-45c8-8c08-e2133925a58c")
+		(uuid "44e8cf3c-0cc1-4ef0-b98f-4828924b7c76")
 	)
 	(label "V_BATT"
 		(at 406.4 299.72 0)
@@ -1312,7 +1312,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "bc7b270b-0644-4233-a101-39574f963247")
+		(uuid "71cbca4f-5bf3-49a7-bdf2-472fc4d78fd1")
 	)
 	(label "VCC_MAIN"
 		(at 355.6 25.4 0)
@@ -1322,7 +1322,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b673c5a5-0e0b-426b-83a0-8253482820b9")
+		(uuid "0cb68b25-d30e-447c-89ff-87bee64a0a3e")
 	)
 	(label "VEE_MAIN"
 		(at 355.6 35.56 0)
@@ -1332,7 +1332,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "920dee62-b019-4a86-9236-4e1500b57592")
+		(uuid "602adff7-dc2c-4e72-b8b8-768149344f20")
 	)
 	(label "VCC_FE"
 		(at 355.6 45.72 0)
@@ -1342,7 +1342,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "9b5c9d63-4571-4bfb-9199-0fb9239d98e0")
+		(uuid "a0f07918-1d37-45ce-9245-7a618e45d6fc")
 	)
 	(label "VEE_FE"
 		(at 355.6 55.88 0)
@@ -1352,7 +1352,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2b8e813a-7a75-4a5a-8d15-d6182b232596")
+		(uuid "0297a23b-7322-4549-ab29-0a5905c58787")
 	)
 	(label "VCC_15"
 		(at 355.6 66.04 0)
@@ -1362,7 +1362,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "af995604-2a5c-4f79-adf2-eb9139ae28fd")
+		(uuid "c3f9ffc3-1d1d-45f6-870d-84afe62de524")
 	)
 	(label "VEE_15"
 		(at 355.6 76.2 0)
@@ -1372,7 +1372,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "3107c74b-792f-43e0-a0ea-8a928d09fa87")
+		(uuid "a264b58c-1959-4437-acd3-48df2f74b276")
 	)
 	(label "SIG_GND"
 		(at 355.6 86.36 0)
@@ -1382,7 +1382,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "81fd117c-2b8f-490d-9265-0a101904f4a0")
+		(uuid "243a0ec4-05fa-4e2d-98e3-ba29888183ca")
 	)
 	(label "PWR_GND"
 		(at 355.6 96.52 0)
@@ -1392,7 +1392,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "df1bbd08-1d65-4bd4-a617-06606a110566")
+		(uuid "dab1c527-7560-4c26-a469-117aa0338258")
 	)
 	(text "tweeter 4 Ω"
 		(exclude_from_sim no)
@@ -1402,7 +1402,7 @@
 				(size 1.5 1.5)
 			)
 		)
-		(uuid "f5af4a86-5d17-4c9b-a449-eef91ab8351a")
+		(uuid "b3f5d243-74b4-426b-abac-dc1fc843e821")
 	)
 	(text "midrange 4 Ω"
 		(exclude_from_sim no)
@@ -1412,7 +1412,7 @@
 				(size 1.5 1.5)
 			)
 		)
-		(uuid "50a662ea-198b-49c8-b308-a0cc54df32fa")
+		(uuid "2bd086fd-1e29-4ab6-a533-7da5b5a7818d")
 	)
 	(text "midbass 2 Ω"
 		(exclude_from_sim no)
@@ -1422,7 +1422,7 @@
 				(size 1.5 1.5)
 			)
 		)
-		(uuid "6f91b0b0-1680-41dd-83ec-77d6d9183f65")
+		(uuid "e01626be-e0b4-4c7e-a522-6d4874ac8023")
 	)
 	(sheet
 		(at 25.4 25.4)
@@ -1460,7 +1460,7 @@
 		)
 		(pin "IN_HOT" input
 			(at 25.4 129.54 180)
-			(uuid "7118cf7a-706c-46df-b4cb-ee39d8e192f6")
+			(uuid "808f50dd-54cc-4aeb-b8be-0cab8883ad64")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1470,7 +1470,7 @@
 		)
 		(pin "IN_COLD" input
 			(at 25.4 116.84 180)
-			(uuid "c7aa67ca-8e47-449e-b961-e0eda4485963")
+			(uuid "67878563-2dd4-4653-abd9-c529bdf18dbd")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1480,7 +1480,7 @@
 		)
 		(pin "SPK_OUT" output
 			(at 25.4 104.14 180)
-			(uuid "494c77f3-7619-449f-bd31-d5151ee2a6ea")
+			(uuid "3b733fab-bfe0-4d00-84d8-f9faadfdc566")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1490,7 +1490,7 @@
 		)
 		(pin "VCC_MAIN" input
 			(at 25.4 91.44 180)
-			(uuid "c3e9e2e8-fea9-4e84-8811-62ba3b0089d2")
+			(uuid "27d6c719-2a26-4f7b-b98c-620a6d613272")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1500,7 +1500,7 @@
 		)
 		(pin "VEE_MAIN" input
 			(at 25.4 78.74 180)
-			(uuid "9afc9f91-8b48-4eda-b078-3423869fd685")
+			(uuid "7f24739d-57e7-409b-8cb9-7764fe08596f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1510,7 +1510,7 @@
 		)
 		(pin "VCC_FE" input
 			(at 25.4 66.04 180)
-			(uuid "8e3e95c6-e011-4042-bfc2-6fe8160d950a")
+			(uuid "9787590c-03e7-4f37-9de6-f94d8548e160")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1520,7 +1520,7 @@
 		)
 		(pin "VEE_FE" input
 			(at 25.4 53.34 180)
-			(uuid "abfcfdd5-4e44-44f8-aad9-766341cbe78e")
+			(uuid "a5fd8e46-5fcd-49c8-8226-4d2b23bffb07")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1530,7 +1530,7 @@
 		)
 		(pin "VCC_15" input
 			(at 25.4 40.64 180)
-			(uuid "204922d0-5923-4255-8167-2e0d6369f845")
+			(uuid "44dd9958-5253-4ae2-969d-28db6b33d569")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1540,7 +1540,7 @@
 		)
 		(pin "VEE_15" input
 			(at 114.3 35.56 0)
-			(uuid "708f2f7d-7681-4923-aa86-f7f567b40c3e")
+			(uuid "92ad2e96-7e9e-4850-91a6-991ac3f03609")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1550,7 +1550,7 @@
 		)
 		(pin "SIG_GND" passive
 			(at 114.3 48.26 0)
-			(uuid "1fd42a3a-7b91-4e57-8f54-249bcb774d01")
+			(uuid "2848bf3a-d575-4fe7-9e5a-d3b7ceedfc65")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1560,7 +1560,7 @@
 		)
 		(pin "PWR_GND" passive
 			(at 114.3 60.96 0)
-			(uuid "29bb5c24-7808-495a-b093-4102c770c9f9")
+			(uuid "6fa65f78-9e4c-46ac-bd58-9bb7f8fc4436")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1570,7 +1570,7 @@
 		)
 		(pin "DC_SENSE" output
 			(at 114.3 73.66 0)
-			(uuid "4106679e-5916-46f0-b1e8-bd835fce2610")
+			(uuid "c45a13f6-5d15-4083-8922-286954e2b940")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1580,7 +1580,7 @@
 		)
 		(pin "I_SENSE" output
 			(at 114.3 86.36 0)
-			(uuid "452eb780-231e-433c-804e-d2a77345a982")
+			(uuid "acbafae7-e764-4c83-a9b1-79eca9f5cc5c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1590,7 +1590,7 @@
 		)
 		(pin "MUTE_CTL" input
 			(at 114.3 99.06 0)
-			(uuid "b7d95745-7ace-42c5-8f2d-73cc163c3982")
+			(uuid "1f26dc45-6d43-4ee9-a3e7-962c55b0ea63")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1642,7 +1642,7 @@
 		)
 		(pin "IN_HOT" input
 			(at 139.7 129.54 180)
-			(uuid "0d68af1f-b30a-4f4e-aeaa-754652c1a82f")
+			(uuid "de0197e9-34d8-4c33-ac7b-3eb5e2806325")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1652,7 +1652,7 @@
 		)
 		(pin "IN_COLD" input
 			(at 139.7 116.84 180)
-			(uuid "99776711-d7db-4689-bb82-1d7d48843e7f")
+			(uuid "12a2ce48-8216-47cc-bdf0-ffe4396516b5")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1662,7 +1662,7 @@
 		)
 		(pin "SPK_OUT" output
 			(at 139.7 104.14 180)
-			(uuid "2d015dfe-7118-466d-aa3e-285110ffcbd6")
+			(uuid "46b2b0fa-0a99-450e-84de-d807de7d6f84")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1672,7 +1672,7 @@
 		)
 		(pin "VCC_MAIN" input
 			(at 139.7 91.44 180)
-			(uuid "85608c3e-77ce-4aad-8acc-3a630f28ad03")
+			(uuid "77dff250-3f77-430c-8234-18ee0fd44f36")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1682,7 +1682,7 @@
 		)
 		(pin "VEE_MAIN" input
 			(at 139.7 78.74 180)
-			(uuid "749fc881-2ace-4bae-b441-d1049a0d8105")
+			(uuid "1349f4fc-20cf-428b-bb2d-ded89fecdf8c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1692,7 +1692,7 @@
 		)
 		(pin "VCC_FE" input
 			(at 139.7 66.04 180)
-			(uuid "3ea66c70-a913-464e-a26d-613a4e1ebef4")
+			(uuid "f85ce81b-dff2-4535-bb48-90d34c133141")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1702,7 +1702,7 @@
 		)
 		(pin "VEE_FE" input
 			(at 139.7 53.34 180)
-			(uuid "05b53ec0-de94-4640-8ad3-ebb5d8e51f41")
+			(uuid "729cada5-1173-4403-a2c4-ecebc444503f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1712,7 +1712,7 @@
 		)
 		(pin "VCC_15" input
 			(at 139.7 40.64 180)
-			(uuid "2eeb6009-37d3-4251-834f-c5b98feefb93")
+			(uuid "9804279f-d86a-41bb-b8d2-eac3789b5f0a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1722,7 +1722,7 @@
 		)
 		(pin "VEE_15" input
 			(at 228.6 35.56 0)
-			(uuid "99e8c988-07ae-4221-b4c9-81cacc98329e")
+			(uuid "49ad9cf7-e861-4fc3-b26f-90e3a49bac24")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1732,7 +1732,7 @@
 		)
 		(pin "SIG_GND" passive
 			(at 228.6 48.26 0)
-			(uuid "4c82b884-0b6f-4589-81dc-59365e67d844")
+			(uuid "7285b9ce-076c-4411-baf4-ec2047d460d7")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1742,7 +1742,7 @@
 		)
 		(pin "PWR_GND" passive
 			(at 228.6 60.96 0)
-			(uuid "cac7f00d-441b-4139-8b4e-5884b7cf068a")
+			(uuid "16f4f857-631e-4314-a3c0-fe828094ef15")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1752,7 +1752,7 @@
 		)
 		(pin "DC_SENSE" output
 			(at 228.6 73.66 0)
-			(uuid "3ca2288f-c88c-4115-9cd6-4f8af41a72e2")
+			(uuid "b9f942af-b97c-417c-b12a-ff81addbc63d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1762,7 +1762,7 @@
 		)
 		(pin "I_SENSE" output
 			(at 228.6 86.36 0)
-			(uuid "799bfad6-8315-410f-b45a-89e0795c10bd")
+			(uuid "34720f4a-6325-4023-9ea1-e9dc2043d6cf")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1772,7 +1772,7 @@
 		)
 		(pin "MUTE_CTL" input
 			(at 228.6 99.06 0)
-			(uuid "f0d94af1-c4ce-455a-ab14-b330989f0cf7")
+			(uuid "c9f56835-122d-4619-8560-cd732b1ca2b0")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1824,7 +1824,7 @@
 		)
 		(pin "IN_HOT" input
 			(at 254 129.54 180)
-			(uuid "7cdd1b4a-c762-4d08-a980-dbc88f77aaca")
+			(uuid "c60aa0ca-4171-4b84-a321-ae4d33d076e4")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1834,7 +1834,7 @@
 		)
 		(pin "IN_COLD" input
 			(at 254 116.84 180)
-			(uuid "c9bea01a-56a0-4c9a-975e-91f1ebf52dd8")
+			(uuid "94863889-9237-4fdb-b7f3-b9984a10dd30")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1844,7 +1844,7 @@
 		)
 		(pin "SPK_OUT" output
 			(at 254 104.14 180)
-			(uuid "d61946c2-f43c-425b-bccc-5c13bc9d90f2")
+			(uuid "580b7b74-305c-4bb5-a78a-e0f39e2a917c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1854,7 +1854,7 @@
 		)
 		(pin "VCC_MAIN" input
 			(at 254 91.44 180)
-			(uuid "0056b49d-4b3d-4aed-89a6-eda023e5b47a")
+			(uuid "77489417-60ed-4cc6-8204-04a0d32a923c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1864,7 +1864,7 @@
 		)
 		(pin "VEE_MAIN" input
 			(at 254 78.74 180)
-			(uuid "bd46f212-12da-47b3-baeb-7fc56895ae48")
+			(uuid "73b88c95-718d-4507-ae84-bb50212fc406")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1874,7 +1874,7 @@
 		)
 		(pin "VCC_FE" input
 			(at 254 66.04 180)
-			(uuid "b34accd0-9a98-4ceb-ba39-0a32abe48d6c")
+			(uuid "2bb44c08-17b4-4a97-99d7-7b0f13da1345")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1884,7 +1884,7 @@
 		)
 		(pin "VEE_FE" input
 			(at 254 53.34 180)
-			(uuid "91f18e93-ee70-4367-89d6-471fb5c9be8b")
+			(uuid "f3a2f741-4346-46b3-bb25-0710f5338fcf")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1894,7 +1894,7 @@
 		)
 		(pin "VCC_15" input
 			(at 254 40.64 180)
-			(uuid "1a4cdd11-79ef-4e62-8f2a-66ec49a4c8fe")
+			(uuid "ea4c67f0-b6f5-4752-b5d9-745469d6f149")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1904,7 +1904,7 @@
 		)
 		(pin "VEE_15" input
 			(at 342.9 35.56 0)
-			(uuid "bd492336-d976-4588-b874-5bcb57416150")
+			(uuid "6d8f2287-b1f7-4c7e-b2de-5f464578c951")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1914,7 +1914,7 @@
 		)
 		(pin "SIG_GND" passive
 			(at 342.9 48.26 0)
-			(uuid "dd487f0b-880f-4f14-bd1d-67693c4ef0bf")
+			(uuid "6f1d0ddf-e4f9-497e-9ab1-4d4bf91dd695")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1924,7 +1924,7 @@
 		)
 		(pin "PWR_GND" passive
 			(at 342.9 60.96 0)
-			(uuid "203bbd11-afb0-4d78-877b-28e4d4e39838")
+			(uuid "586859dd-d9dd-4965-9260-f3e4df893f3d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1934,7 +1934,7 @@
 		)
 		(pin "DC_SENSE" output
 			(at 342.9 73.66 0)
-			(uuid "fdcdfb00-8029-4783-ab11-c71b6fa36212")
+			(uuid "72932589-f3c3-475c-9417-5e9179947333")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1944,7 +1944,7 @@
 		)
 		(pin "I_SENSE" output
 			(at 342.9 86.36 0)
-			(uuid "bae74a6e-f284-4c42-a379-772d4252efc0")
+			(uuid "41ef6860-9f3a-4473-939f-8e48a561ac5f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1954,7 +1954,7 @@
 		)
 		(pin "MUTE_CTL" input
 			(at 342.9 99.06 0)
-			(uuid "7fe36022-1692-4684-8a36-e74a6cc63ecf")
+			(uuid "a50d6877-6fbd-46c7-a332-ce1febb39326")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2006,7 +2006,7 @@
 		)
 		(pin "AUX_POS" input
 			(at 25.4 299.72 180)
-			(uuid "2a796056-3c59-495d-ad58-6a69d0724bde")
+			(uuid "7ccd3918-4a95-4011-b121-b4b96d677b7b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2016,7 +2016,7 @@
 		)
 		(pin "AUX_NEG" input
 			(at 25.4 280.035 180)
-			(uuid "88a899b8-623b-4382-a0d7-74813ffb391e")
+			(uuid "fb594fa6-5799-46df-b71b-6114a104b65d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2026,7 +2026,7 @@
 		)
 		(pin "VCC_FE" output
 			(at 25.4 260.35 180)
-			(uuid "b6ef9fd7-f3ea-43ab-b400-9326d4d79ad2")
+			(uuid "f499267b-2623-4907-bcee-ebb11b459d49")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2036,7 +2036,7 @@
 		)
 		(pin "VEE_FE" output
 			(at 25.4 240.665 180)
-			(uuid "f507982f-da4b-4aa7-9df3-4dc54064ac58")
+			(uuid "7e84bf88-fc1f-43ac-b64e-803320dbada6")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2046,7 +2046,7 @@
 		)
 		(pin "VCC_15" output
 			(at 25.4 220.98 180)
-			(uuid "d610161a-b2f8-4cbc-8248-bc630a78302c")
+			(uuid "87550387-c7b7-4108-98ab-2e6d0164a8b5")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2056,7 +2056,7 @@
 		)
 		(pin "VEE_15" output
 			(at 127 220.98 0)
-			(uuid "e9af0922-edf0-49a1-a69f-262cf0460818")
+			(uuid "08ad796d-d6bb-468a-a3f9-e7a79dab2a5a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2066,7 +2066,7 @@
 		)
 		(pin "SIG_GND" passive
 			(at 127 240.665 0)
-			(uuid "58301792-6b71-4963-bf4a-ff1ce3fd79e9")
+			(uuid "fe836d66-f1cc-4450-af03-6bb3919465db")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2076,7 +2076,7 @@
 		)
 		(pin "PWR_GND" passive
 			(at 127 260.35 0)
-			(uuid "5b89685b-10e2-4c3e-8821-777232c926bb")
+			(uuid "a8d20264-0301-4410-aff1-f4a502a4b893")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2086,7 +2086,7 @@
 		)
 		(pin "VCC_MAIN" passive
 			(at 127 280.035 0)
-			(uuid "8a5a67ec-785b-45b5-aeb5-9822752e9d0b")
+			(uuid "d967d594-0528-4037-af70-139cd81d819b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2096,7 +2096,7 @@
 		)
 		(pin "VEE_MAIN" passive
 			(at 127 299.72 0)
-			(uuid "a2584de2-c28a-433b-b10f-8a2a550748a5")
+			(uuid "0ec83a80-9a50-494b-a736-1a25a30963fe")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2148,7 +2148,7 @@
 		)
 		(pin "DC_SENSE_T" input
 			(at 139.7 299.72 180)
-			(uuid "8a868e08-9900-424d-a8d2-539d72da23a8")
+			(uuid "f9da1199-ea49-4775-a7f4-20c810142e86")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2158,7 +2158,7 @@
 		)
 		(pin "DC_SENSE_M" input
 			(at 139.7 289.8775 180)
-			(uuid "3140c01b-e517-44cf-ab03-36fa7e7dc7e0")
+			(uuid "55f96ad6-7b31-42b6-9ecf-7c95d2344d23")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2168,7 +2168,7 @@
 		)
 		(pin "DC_SENSE_B" input
 			(at 139.7 280.035 180)
-			(uuid "f44aa0ed-4c29-469d-b9a7-8e288fb1303a")
+			(uuid "d2a7836e-6384-4466-8ff2-d18464cbbe30")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2178,7 +2178,7 @@
 		)
 		(pin "I_SENSE_T" input
 			(at 139.7 270.1925 180)
-			(uuid "0f8fc4fe-7b24-44d0-b89a-bc8d92491276")
+			(uuid "9559bff9-8230-4e8b-a8c2-5e29819eb1d6")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2188,7 +2188,7 @@
 		)
 		(pin "I_SENSE_M" input
 			(at 139.7 260.35 180)
-			(uuid "0400df24-a155-42e8-9318-f15bac041501")
+			(uuid "a6170a00-2799-4f0e-b11b-8cea22dc39af")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2198,7 +2198,7 @@
 		)
 		(pin "I_SENSE_B" input
 			(at 139.7 250.5075 180)
-			(uuid "f487ef57-11b4-42f2-81ab-98f27a870b9a")
+			(uuid "b8a540d0-1485-4487-8ebe-b27b1a083442")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2208,7 +2208,7 @@
 		)
 		(pin "MUTE_CTL" output
 			(at 139.7 240.665 180)
-			(uuid "0b46a970-2a12-4a81-ba5f-e9bfd2c9e967")
+			(uuid "7e352751-4339-4cbf-b6df-3f82f22d8a80")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2218,7 +2218,7 @@
 		)
 		(pin "RELAY_T" output
 			(at 139.7 230.8225 180)
-			(uuid "ceef90ea-ba10-4665-b260-b0b9a35083ed")
+			(uuid "7d9571e4-6096-4a16-88d1-0d8ca9d4b363")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2228,7 +2228,7 @@
 		)
 		(pin "RELAY_M" output
 			(at 139.7 220.98 180)
-			(uuid "24c4e2de-f6b4-419d-b108-06c9c3711bab")
+			(uuid "548c53e3-1945-4c2a-bcf1-f447ef7fea60")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2238,7 +2238,7 @@
 		)
 		(pin "RELAY_B" output
 			(at 266.7 220.98 0)
-			(uuid "62f7aac6-75d2-4195-800b-96723e72ef7f")
+			(uuid "9347d48c-2acc-4810-b23f-23628c17a5da")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2248,7 +2248,7 @@
 		)
 		(pin "SHUTDOWN" output
 			(at 266.7 232.228571 0)
-			(uuid "55b0f3f6-6948-4ebd-8ade-19e817f2f686")
+			(uuid "88e738f8-da8c-4b1e-b950-3d79b18c706b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2258,7 +2258,7 @@
 		)
 		(pin "REMOTE" input
 			(at 266.7 243.477143 0)
-			(uuid "7450df8c-8119-4a6b-b414-eddd3c655440")
+			(uuid "9da7c306-6b82-4c54-96e3-bfb9144787b7")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2268,7 +2268,7 @@
 		)
 		(pin "VCC_MAIN" input
 			(at 266.7 254.725714 0)
-			(uuid "9e0dbb96-1587-4866-8fda-fb4dd26684a0")
+			(uuid "59d7c5f5-92a7-4ad2-bf13-51b2af2ec969")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2278,7 +2278,7 @@
 		)
 		(pin "VEE_MAIN" input
 			(at 266.7 265.974286 0)
-			(uuid "04122ab8-9524-4f0f-91f2-2051ae99f1e5")
+			(uuid "dcef0f08-97be-4800-b4e0-22fe7bf60527")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2288,7 +2288,7 @@
 		)
 		(pin "V_BATT" input
 			(at 266.7 277.222857 0)
-			(uuid "f3498e60-4a2f-4822-ac96-6e7117b549ce")
+			(uuid "cd96c957-db4b-48ce-981b-b281fdf6c73c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2298,7 +2298,7 @@
 		)
 		(pin "SIG_GND" passive
 			(at 266.7 288.471429 0)
-			(uuid "9589671e-8f6d-43da-8440-f37989945e01")
+			(uuid "a3da9c10-4d4c-4358-a857-f3acefe234e3")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2308,7 +2308,7 @@
 		)
 		(pin "PWR_GND" passive
 			(at 266.7 299.72 0)
-			(uuid "029b495b-72ac-4f31-8550-f0ecafcbcecf")
+			(uuid "fd4517ec-21b4-4157-b3a1-f30f5792482c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2360,7 +2360,7 @@
 		)
 		(pin "IN_HOT_T" output
 			(at 279.4 299.72 180)
-			(uuid "7bc20926-d6e2-49f0-97d6-2f2223651eac")
+			(uuid "5a113639-b442-43b5-a4d4-a4ff7834907f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2370,7 +2370,7 @@
 		)
 		(pin "IN_COLD_T" output
 			(at 279.4 289.8775 180)
-			(uuid "1718322e-d59f-4444-809b-1dbe87fdf5c0")
+			(uuid "8a654527-a4e0-4806-a53c-6e1e8ff17ae3")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2380,7 +2380,7 @@
 		)
 		(pin "IN_HOT_M" output
 			(at 279.4 280.035 180)
-			(uuid "bc86318b-6d48-474d-b776-18914bf94b52")
+			(uuid "472a7b68-7bd3-4e7c-9698-807e3eff2c75")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2390,7 +2390,7 @@
 		)
 		(pin "IN_COLD_M" output
 			(at 279.4 270.1925 180)
-			(uuid "d2022ae2-e4b4-4244-bbe9-da284c69ca02")
+			(uuid "d2db084a-4f37-479e-b8aa-00b60136ec15")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2400,7 +2400,7 @@
 		)
 		(pin "IN_HOT_B" output
 			(at 279.4 260.35 180)
-			(uuid "d0605096-2174-4ce4-b925-74afe055c871")
+			(uuid "c4377c20-7fab-4112-b9de-f1c219c4b006")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2410,7 +2410,7 @@
 		)
 		(pin "IN_COLD_B" output
 			(at 279.4 250.5075 180)
-			(uuid "cc1a88e7-829f-47f3-8813-0a75d596294b")
+			(uuid "d32fa282-5c3f-489b-953c-5687eca9344e")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2420,7 +2420,7 @@
 		)
 		(pin "SPK_T" input
 			(at 279.4 240.665 180)
-			(uuid "ddab6fe5-ba79-4b1f-afa6-b2ee473f08a5")
+			(uuid "16e882c5-4c40-4cd5-bfab-1b7c52f77084")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2430,7 +2430,7 @@
 		)
 		(pin "SPK_M" input
 			(at 279.4 230.8225 180)
-			(uuid "cf711304-955e-460a-90cb-4bfb9660bf59")
+			(uuid "956c73eb-0cf0-4891-8f32-8cbdfff66302")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2440,7 +2440,7 @@
 		)
 		(pin "SPK_B" input
 			(at 279.4 220.98 180)
-			(uuid "d869a15f-1650-40b8-893e-f68b4c4564a8")
+			(uuid "9e9388c9-d3dc-4b77-b8a3-e0a321d41bd5")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2450,7 +2450,7 @@
 		)
 		(pin "VCC_MAIN" output
 			(at 406.4 220.98 0)
-			(uuid "b393b39c-4098-49d5-8fa0-3570ca57f14c")
+			(uuid "6784d679-cae2-4150-b3bf-cc5c196d5957")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2460,7 +2460,7 @@
 		)
 		(pin "VEE_MAIN" output
 			(at 406.4 230.8225 0)
-			(uuid "47d620d4-d58c-429a-9cb3-6952df79419f")
+			(uuid "f68f3367-25aa-4320-8356-6f62192128c0")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2470,7 +2470,7 @@
 		)
 		(pin "PWR_GND" passive
 			(at 406.4 240.665 0)
-			(uuid "ebf95555-b0af-444d-9283-d176bcc69d98")
+			(uuid "e1008a24-57af-4f51-9396-f306d963c804")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2480,7 +2480,7 @@
 		)
 		(pin "AUX_POS" output
 			(at 406.4 250.5075 0)
-			(uuid "786299e1-2c40-4ec9-ae32-8d86b4be5f6b")
+			(uuid "687b9afe-be84-46d6-a83e-4b69da175e9a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2490,7 +2490,7 @@
 		)
 		(pin "AUX_NEG" output
 			(at 406.4 260.35 0)
-			(uuid "7678cdd4-63a7-4227-be1a-1bf89f4c8000")
+			(uuid "8dc525e9-6246-4e23-a5c2-4313e9003607")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2500,7 +2500,7 @@
 		)
 		(pin "REMOTE" output
 			(at 406.4 270.1925 0)
-			(uuid "274f028f-77a8-4234-a0c5-826a3c50ac7e")
+			(uuid "3ea2f9c9-6933-4641-b73c-c5caea1b7957")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2510,7 +2510,7 @@
 		)
 		(pin "SHUTDOWN" input
 			(at 406.4 280.035 0)
-			(uuid "a79c189a-0f9b-499d-bbc9-a9cb56c27dd9")
+			(uuid "c3d5ddbf-6836-4444-95d0-408af99ed9c9")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2520,7 +2520,7 @@
 		)
 		(pin "SIG_GND" passive
 			(at 406.4 289.8775 0)
-			(uuid "b028e6fb-368b-40af-bd62-96ace233a035")
+			(uuid "0fcbcdd4-8468-43dc-8e34-11b241338248")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2530,7 +2530,7 @@
 		)
 		(pin "V_BATT" output
 			(at 406.4 299.72 0)
-			(uuid "a046b1df-ae43-4b61-acb1-e37447c5e47b")
+			(uuid "6bba2d0a-de7b-4e06-bd7b-0899e07961cb")
 			(effects
 				(font
 					(size 1.27 1.27)

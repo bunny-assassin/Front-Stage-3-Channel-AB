@@ -5,9 +5,10 @@
     python3 tools/check_schematic.py
 
 channel_netlist.py is the source of truth for one amplifier channel. This
-script places that channel on a 1.27 mm grid and labels every pin (auto-wires
-are not used: a Manhattan stub along a pin column shorts every pin it
-crosses). The channel sheet is instantiated three times under fs3w-amp.kicad_sch.
+script places that channel on a 1.27 mm grid, labels every pin, and draws
+collision-checked wires for nets with two to four connections (docs/07 §7.4).
+A stub-then-jog router keeps those wires off other pins; high-fanout nets stay
+labels-only. The channel sheet is instantiated three times under fs3w-amp.kicad_sch.
 Regulators, protection, interface and the PSU project are generated from the
 same docs/BoM the channel was; they have no separate Python netlist yet.
 """
@@ -373,6 +374,134 @@ def add_nc(sch: Schematic, pos) -> None:
     sch.no_connects.add(position=(snap(pos.x, pos.y)))
 
 
+# ---------------------------------------------------------------------------
+# Collision-checked wiring (2–4 pin nets)
+# ---------------------------------------------------------------------------
+
+STUB = 2.54
+HIT_R = 0.64  # mm; half a 1.27 grid, so a pin-column scrape is a hit
+
+
+def _xy(pt) -> tuple[float, float]:
+    return (float(pt.x), float(pt.y))
+
+
+def _outward(comp, pt) -> tuple[float, float]:
+    dx = pt.x - comp.position.x
+    dy = pt.y - comp.position.y
+    if abs(dx) >= abs(dy):
+        return (1.0 if dx >= 0 else -1.0, 0.0)
+    return (0.0, 1.0 if dy >= 0 else -1.0)
+
+
+def _seg_hits(a: tuple[float, float], b: tuple[float, float],
+              obstacles: list[tuple[float, float]],
+              ignore: list[tuple[float, float]]) -> bool:
+    ax, ay = a
+    bx, by = b
+    vx, vy = bx - ax, by - ay
+    length = (vx * vx + vy * vy) ** 0.5
+    if length < 1e-6:
+        return False
+    for ox, oy in obstacles:
+        if any(abs(ox - ix) < 0.3 and abs(oy - iy) < 0.3 for ix, iy in ignore):
+            continue
+        t = max(0.0, min(1.0, ((ox - ax) * vx + (oy - ay) * vy) / (length * length)))
+        px, py = ax + t * vx, ay + t * vy
+        if (ox - px) ** 2 + (oy - py) ** 2 < HIT_R * HIT_R:
+            return True
+    return False
+
+
+def _path_clear(points: list[tuple[float, float]],
+                obstacles: list[tuple[float, float]],
+                ignore: list[tuple[float, float]]) -> bool:
+    for i in range(len(points) - 1):
+        if _seg_hits(points[i], points[i + 1], obstacles, ignore):
+            return False
+    return True
+
+
+def _draw_path(sch: Schematic, points: list[tuple[float, float]]) -> None:
+    for i in range(len(points) - 1):
+        a, b = points[i], points[i + 1]
+        if abs(a[0] - b[0]) < 0.02 and abs(a[1] - b[1]) < 0.02:
+            continue
+        sch.add_wire(a, b, grid_units=False)
+
+
+def route_pair(sch: Schematic, comp_a, pt_a, comp_b, pt_b,
+               obstacles: list[tuple[float, float]]) -> bool:
+    """Wire two pins via an outward stub so the jog misses a pin column."""
+    a, b = _xy(pt_a), _xy(pt_b)
+    da, db = _outward(comp_a, pt_a), _outward(comp_b, pt_b)
+    sa = (a[0] + da[0] * STUB, a[1] + da[1] * STUB)
+    sb = (b[0] + db[0] * STUB, b[1] + db[1] * STUB)
+    sa2 = (sa[0] + da[0] * STUB, sa[1] + da[1] * STUB)
+    sb2 = (sb[0] + db[0] * STUB, sb[1] + db[1] * STUB)
+    ignore = [a, b]
+    paths: list[list[tuple[float, float]]] = []
+    if abs(a[0] - b[0]) < 0.05 or abs(a[1] - b[1]) < 0.05:
+        paths.append([a, b])
+    paths.append([a, sa, sb, b])
+    if abs(sa[0] - sb[0]) > 0.05 and abs(sa[1] - sb[1]) > 0.05:
+        paths.append([a, sa, (sb[0], sa[1]), sb, b])
+        paths.append([a, sa, (sa[0], sb[1]), sb, b])
+        paths.append([a, sa, sa2, (sb2[0], sa2[1]), sb2, sb, b])
+        paths.append([a, sa, sa2, (sa2[0], sb2[1]), sb2, sb, b])
+    for path in paths:
+        if _path_clear(path, obstacles, ignore):
+            _draw_path(sch, path)
+            return True
+    return False
+
+
+def wire_channel_nets(sch: Schematic, by_ref: dict, nets: dict[str, list[tuple[str, str]]],
+                      pin_pts: dict[tuple[str, str], object]) -> None:
+    """Wire 2–4 connection nets. Larger nets stay labels-only (docs/07)."""
+    by_c = {c.ref: c for c in COMPONENTS}
+    all_pts = [(_xy(pt)) for pt in pin_pts.values()]
+    wired = 0
+    skipped = 0
+    for net, conns in nets.items():
+        if net in ALLOWED_SINGLE_PIN or len(conns) < 2 or len(conns) > 4:
+            continue
+        nodes = []
+        for ref, pin in conns:
+            kn = kicad_pin(by_c[ref], pin)
+            nodes.append((by_ref[ref], pin_pts[(ref, kn)], ref, kn))
+        # MST on Manhattan distance
+        edges: list[tuple[float, int, int]] = []
+        for i in range(len(nodes)):
+            for j in range(i + 1, len(nodes)):
+                ai, bi = _xy(nodes[i][1]), _xy(nodes[j][1])
+                edges.append((abs(ai[0] - bi[0]) + abs(ai[1] - bi[1]), i, j))
+        edges.sort()
+        parent = list(range(len(nodes)))
+
+        def find(x: int) -> int:
+            while parent[x] != x:
+                parent[x] = parent[parent[x]]
+                x = parent[x]
+            return x
+
+        for _, i, j in edges:
+            ri, rj = find(i), find(j)
+            if ri == rj:
+                continue
+            parent[ri] = rj
+            ca, pa, *_ = nodes[i]
+            cb, pb, *_ = nodes[j]
+            # Obstacles: pins that are not on this net
+            ignore_pts = {_xy(n[1]) for n in nodes}
+            obstacles = [p for p in all_pts if p not in ignore_pts]
+            if route_pair(sch, ca, pa, cb, pb, obstacles):
+                wired += 1
+            else:
+                skipped += 1
+    print(f"  wired {wired} segments, {skipped} left as labels-only")
+
+
 def build_channel() -> Schematic:
     sch = new_sch("AMP_CHANNEL", "A1", "amp_channel")
     pos = channel_positions()
@@ -404,27 +533,33 @@ def build_channel() -> Schematic:
     for ref, pin, net in NETLIST:
         nets[net].append((ref, pin))
 
+    pin_pts: dict[tuple[str, str], object] = {}
     for net, conns in nets.items():
         if net in ALLOWED_SINGLE_PIN:
             ref, pin = conns[0]
-            add_nc(sch, pin_pos(by_ref[ref], kicad_pin(next(c for c in COMPONENTS if c.ref == ref), pin)))
+            n = kicad_pin(next(c for c in COMPONENTS if c.ref == ref), pin)
+            add_nc(sch, pin_pos(by_ref[ref], n))
             continue
         hier_done = False
         for ref, pin in conns:
             c = next(x for x in COMPONENTS if x.ref == ref)
             n = kicad_pin(c, pin)
             pt = pin_pos(by_ref[ref], n)
+            pin_pts[(ref, n)] = pt
             if net in HIER_PINS and not hier_done:
                 add_hier_label(sch, net, pt, HIER_SHAPE.get(net, "passive"))
                 hier_done = True
             else:
                 add_local_label(sch, net, pt)
 
-    # INA1651 NC pins 5–9
+    # INA1651 NC pins 5–9 (also obstacles for the router)
     u1 = by_ref["U1"]
     for n in ("5", "6", "7", "8", "9"):
-        add_nc(sch, pin_pos(u1, n))
+        pt = pin_pos(u1, n)
+        pin_pts[("U1", n)] = pt
+        add_nc(sch, pt)
 
+    wire_channel_nets(sch, by_ref, nets, pin_pts)
     return sch
 
 
@@ -588,18 +723,21 @@ def build_interface() -> Schematic:
         ("J403", "IN_HOT_B", "IN_COLD_B"),
     )):
         _part(sch, "Connector_Generic:Conn_01x02", ref, "TB003-500-02BE",
-              50, 30 + 24 * i, "TerminalBlock:TerminalBlock_bornier-2_P5.08mm")
+              50, 30 + 24 * i,
+              "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal")
         _lab(sch, hot, 62, 30 + 24 * i)
         _lab(sch, cold, 62, 36 + 24 * i)
 
     for i, (ref, spk) in enumerate((("J404", "SPK_T"), ("J405", "SPK_M"), ("J406", "SPK_B"))):
         _part(sch, "Connector_Generic:Conn_01x02", ref, "TB006-508-02BE",
-              110, 30 + 24 * i, "TerminalBlock:TerminalBlock_bornier-2_P5.08mm")
+              110, 30 + 24 * i,
+              "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal")
         _lab(sch, spk, 122, 30 + 24 * i)
         _lab(sch, "PWR_GND", 122, 36 + 24 * i)
 
     _part(sch, "Connector_Generic:Conn_01x03", "J407", "TB007-762-03BE",
-          50, 120, "TerminalBlock:TerminalBlock_bornier-3_P7.62mm")
+          50, 120,
+          "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal")
     _lab(sch, "VCC_MAIN", 64, 120)
     _lab(sch, "PWR_GND", 64, 126)
     _lab(sch, "VEE_MAIN", 64, 132)
